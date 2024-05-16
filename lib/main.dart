@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       initialRoute: "home",
       routes: {
         "home": (context) => const DashboardHome(),
-        "users":(context) => const DashboardUsers()
+        "users": (context) => const DashboardUsers()
       },
       debugShowCheckedModeBanner: false,
       title: 'MedicashApp Dashboard',
