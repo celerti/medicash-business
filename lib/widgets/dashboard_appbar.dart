@@ -6,46 +6,45 @@ abstract class DashboardAppBar {
   => AppBar(
     backgroundColor: Colors.deepPurpleAccent,
     elevation: 0,
-    title: Flexible(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          InkWell(
-            child: Row(
-              children: <Widget>[
-                const Icon(Icons.add_box_outlined,
-                color: Colors.white),
-                Text("MedicashApp Dashboard",
-                  style: GoogleFonts.robotoMono(
-                    textStyle: const TextStyle(
-                      fontSize: 16,
-                      color: Colors.white
-                    )
+    title: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        InkWell(
+          child: Row(
+            children: <Widget>[
+              const Icon(Icons.add_box_outlined,
+              color: Colors.white),
+              Text("MedicashApp Dashboard",
+                style: GoogleFonts.roboto(
+                  textStyle: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white
                   )
-                ),
-              ],
-            ),
-            onTap: () {
-              if (ModalRoute.of(context)?.settings.name != "home") {
-                Navigator.popAndPushNamed(context, "home");
-              }
-            }
+                )
+              ),
+            ],
           ),
-          InkWell(
-            child: Container(
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white
-              ),
-              child: const Icon(
-                Icons.notifications,
-                color: Colors.deepPurpleAccent,
-              ),
+          onTap: () {
+            if (ModalRoute.of(context)?.settings.name != "home") {
+              Navigator.pushNamed(context, "home");
+            }
+          }
+        ),
+        InkWell(
+          child: Container(
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.white
             ),
-            onTap: (){},
-          )
-        ],
-      ),
+            child: const Icon(
+              Icons.notifications,
+              color: Colors.deepPurpleAccent,
+            ),
+          ),
+          onTap: (){},
+        )
+      ],
     ),
   );
 }

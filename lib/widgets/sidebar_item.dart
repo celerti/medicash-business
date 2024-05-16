@@ -23,9 +23,10 @@ class SideBarItem extends StatelessWidget {
               color: Colors.green[500]
             ),
             Text(name,
-              style: GoogleFonts.robotoMono(
+              style: GoogleFonts.montserrat(
                 textStyle: const TextStyle(
                   fontSize: 16,
+                  fontWeight: FontWeight.w600,
                   color: Colors.black
                 )
               )
@@ -34,7 +35,7 @@ class SideBarItem extends StatelessWidget {
         ),
         onTap: () {
           if (ModalRoute.of(context)?.settings.name != routeName) {
-            Navigator.popAndPushNamed(context, routeName);
+            Navigator.pushNamed(context, routeName);
           }
         }
       ),

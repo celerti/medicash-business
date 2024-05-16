@@ -6,16 +6,14 @@ class SideBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Expanded(
-      child: Column(
-        children: <Widget>[
-          SideBarItem(
-            icon: Icons.person,
-            name: "Profile",
-            routeName: "users",
-          )
-        ]
-      )
+    return Column(
+      children: <Widget>[
+        SideBarItem(
+          icon: Icons.person,
+          name: "Profile",
+          routeName: "users",
+        )
+      ]
     );
   }
 }
