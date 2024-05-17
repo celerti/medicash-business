@@ -1,5 +1,4 @@
 import 'package:dashboard/pages/dashboard_home.dart';
-import 'package:dashboard/pages/dashboard_users.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,11 +12,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: "home",
-      routes: {
-        "home": (context) => const DashboardHome(),
-        "users": (context) => const DashboardUsers()
-      },
       debugShowCheckedModeBanner: false,
       title: 'MedicashApp Dashboard',
       theme: ThemeData(

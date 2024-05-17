@@ -1,5 +1,5 @@
 import 'package:dashboard/partners/partner_charts.dart';
-import 'package:dashboard/partners/profile_stats.dart';
+import 'package:dashboard/partners/partner_stats.dart';
 import 'package:dashboard/partners/store_list.dart';
 import 'package:flutter/material.dart';
 
@@ -14,9 +14,9 @@ class _PartnerDashboardState extends State<PartnerDashboard> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: <Widget>[
-        const Flexible(
+        Flexible(
           flex: 2,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -24,7 +24,7 @@ class _PartnerDashboardState extends State<PartnerDashboard> {
             children: <Widget>[
               Flexible(
                 flex: 1,
-                child: ProfileStats()
+                child: PartnerStats()
               ),
               Flexible(
                 flex: 3,
@@ -33,7 +33,7 @@ class _PartnerDashboardState extends State<PartnerDashboard> {
             ],
           ),
         ),
-        const SizedBox(height: 30),
+        SizedBox(height: 30),
         Flexible(
           child: StoreList()
         )

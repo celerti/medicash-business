@@ -1,8 +1,8 @@
 import 'package:dashboard/widgets/dashboard_text.dart';
 import 'package:flutter/material.dart';
 
-class ProfileStats extends StatelessWidget {
-  const ProfileStats({super.key});
+class PartnerStats extends StatelessWidget {
+  const PartnerStats({super.key});
 
   @override
   Widget build(BuildContext context) {
