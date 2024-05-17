@@ -13,7 +13,7 @@ class DashboardHome extends StatefulWidget {
 
 class DashboardHomeState extends State<DashboardHome> {
   GlobalKey<ScaffoldState> layoutKey = GlobalKey();
-  Widget _homeView = const StoreDashboard(); // TODO: debug 
+  Widget _homeView = const PartnerDashboard(); // TODO: debug 
 
   void setHomeView(Widget homeView) => setState(() {
     _homeView = homeView;

@@ -16,7 +16,7 @@ class SideBar extends StatelessWidget {
           destination: PartnerDashboard(),
         ),
         SideBarItem(icon: Icons.shopping_cart_checkout_outlined, 
-          name: "Lojas",
+          name: "Vendas",
           destination: StoreDashboard()
         ),
         SideBarItem(
