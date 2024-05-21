@@ -1,5 +1,4 @@
 import 'package:dashboard/partners/partner_charts.dart';
-import 'package:dashboard/partners/partner_stats.dart';
 import 'package:dashboard/partners/store_list.dart';
 import 'package:flutter/material.dart';
 
@@ -22,10 +21,10 @@ class _PartnerDashboardState extends State<PartnerDashboard> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Flexible(
-                flex: 1,
-                child: PartnerStats()
-              ),
+              // Flexible(
+              //   flex: 1,
+              //   child: PartnerStats()
+              // ),
               Flexible(
                 flex: 3,
                 child: PartnerCharts()
