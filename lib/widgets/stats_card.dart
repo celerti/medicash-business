@@ -1,13 +1,13 @@
 import 'package:dashboard/widgets/dashboard_text.dart';
 import 'package:flutter/material.dart';
 
-class ChartCard extends StatelessWidget {
+class StatsCard extends StatelessWidget {
   final String header;
   final String body;
   final bool toggleStats;
   final double growth;
   final bool increase;
-  const ChartCard({
+  const StatsCard({
     super.key, 
     required this.header, 
     required this.body,
