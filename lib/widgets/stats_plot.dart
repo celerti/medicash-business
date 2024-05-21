@@ -12,7 +12,7 @@ class StatsPlot extends StatelessWidget {
       title: ChartTitle(
          text: "Projeção de Ganhos",
          textStyle: GoogleFonts.getFont(
-          "Roboto",
+          "Noto Sans",
           fontWeight: FontWeight.bold,
           fontSize: 16,
           color: Colors.deepPurpleAccent

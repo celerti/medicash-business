@@ -23,6 +23,22 @@ class StatsCard extends StatelessWidget {
         Container(
           height: 90,
           width: 250,
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.all(
+              Radius.circular(10)
+            ),
+            boxShadow: <BoxShadow> [
+              BoxShadow(
+                blurRadius: 5,
+                color: Colors.black
+              )
+            ],
+            color: Colors.white
+          ),
+        ),
+        Container(
+          height: 90,
+          width: 250,
           padding: const EdgeInsets.only(
             bottom: 10,
             left: 10,
@@ -43,9 +59,9 @@ class StatsCard extends StatelessWidget {
             children: [
               DashboardText(
                 text: body,
-                fontFamily: "Roboto",
+                fontFamily: "Open Sans",
                 size: 20,
-                fontWeight: FontWeight.bold,
+                // fontWeight: FontWeight.bold,
                 color: Colors.deepPurpleAccent,
               ),
               if (toggleStats)
@@ -57,7 +73,7 @@ class StatsCard extends StatelessWidget {
                   ),
                 DashboardText(
                   text: "${growth.toStringAsFixed(2)}%",
-                  fontFamily: "Roboto",
+                  fontFamily: "Open Sans",
                   fontWeight: FontWeight.bold,
                   color: increase ? Colors.greenAccent : Colors.redAccent,
                   size: 20
@@ -83,8 +99,7 @@ class StatsCard extends StatelessWidget {
           ),
           child: DashboardText(
             text: header,
-            fontFamily: "Roboto",
-            fontWeight: FontWeight.bold,
+            fontFamily: "Noto Sans",
             color: Colors.white,
           ),
         ),

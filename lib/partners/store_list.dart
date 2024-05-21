@@ -13,7 +13,7 @@ class StoreList extends StatelessWidget {
         children: <Widget>[
           const DashboardText(
             text: "Lojas cadastradas", 
-            fontFamily: "Roboto",
+            fontFamily: "Noto Sans",
             size: 16,
             color: Colors.deepPurpleAccent,
             fontWeight: FontWeight.bold,

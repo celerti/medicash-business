@@ -24,7 +24,8 @@ class SideBarItem extends StatelessWidget {
               color: Colors.green[500]
             ),
             Text(name,
-              style: GoogleFonts.montserrat(
+              style: GoogleFonts.getFont(
+                "Noto Sans",
                 textStyle: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,

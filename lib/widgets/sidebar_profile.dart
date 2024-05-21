@@ -30,7 +30,7 @@ class SideBarProfile extends StatelessWidget {
           const SizedBox(height: 10),
           const DashboardText(text: 
             "MedicashApp Partner",
-            fontFamily: "Roboto",
+            fontFamily: "Noto Sans",
             fontWeight: FontWeight.bold,
             size: 16,
             color: Colors.white,

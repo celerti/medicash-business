@@ -21,18 +21,18 @@ class StoreStats extends StatelessWidget {
         const SizedBox(height: 10),
         const DashboardText(text: 
           "Loja Medicash",
-          fontFamily: "Roboto",
+          fontFamily: "Noto Sans",
           fontWeight: FontWeight.bold,
           size: 20,
         ),
         const SizedBox(height: 20),
         const DashboardText(
           text: "Vendas nos últimos 30 dias:",
-          fontFamily: "Roboto"
+          fontFamily: "Noto Sans"
         ),
         const SizedBox(height: 5),
         const DashboardText(text: "50 vendas",
-          fontFamily: "Roboto",
+          fontFamily: "Noto Sans",
           fontWeight: FontWeight.bold,
         )
       ],

@@ -15,7 +15,8 @@ abstract class DashboardAppBar {
               const Icon(Icons.add_box_outlined,
               color: Colors.white),
               Text("MedicashApp Dashboard",
-                style: GoogleFonts.roboto(
+                style: GoogleFonts.getFont(
+                  "Noto Sans",
                   textStyle: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,

@@ -22,14 +22,14 @@ class ListItem extends StatelessWidget {
         children: <Widget>[
           const DashboardText(
             text: "Loja Medicash",
-            fontFamily: "Roboto",
+            fontFamily: "Noto Sans",
             fontWeight: FontWeight.bold,
           ),
           const DashboardText(
             text: "100 vendas",
-            fontFamily: "Roboto",
+            fontFamily: "Noto Sans",
           ),
-          const DashboardText(text: "6 usuários", fontFamily: "Roboto"),
+          const DashboardText(text: "6 usuários", fontFamily: "Noto Sans"),
           InkWell(
             onTap: (){
               DashboardHomeState? homeState = context.findAncestorStateOfType<DashboardHomeState>();
