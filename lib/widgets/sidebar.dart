@@ -1,5 +1,6 @@
 import 'package:dashboard/partners/partner_dashboard.dart';
 import 'package:dashboard/stores/store_dashboard.dart';
+import 'package:dashboard/utils/redirect.dart';
 import 'package:dashboard/widgets/sidebar_item.dart';
 import 'package:dashboard/widgets/sidebar_profile.dart';
 import 'package:flutter/material.dart';
@@ -9,22 +10,22 @@ class SideBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: <Widget>[
-        SideBarProfile(), 
+        const SideBarProfile(), 
         SideBarItem(
           icon: Icons.person_outlined,
           name: "Área do Parceiro",
-          destination: PartnerDashboard(),
+          destination: Redirect.toPartnerDashboard(),
         ),
         SideBarItem(icon: Icons.shopping_cart_checkout_outlined,
           name: "Vendas",
-          destination: StoreDashboard()
+          destination: Redirect.toStoreDashboard()
         ),
         SideBarItem(
           icon: Icons.people_outline_sharp,
           name: "Usuários",
-          destination: Placeholder()
+          destination: Redirect.toUsersDashboard()
         ),
       ]
     );

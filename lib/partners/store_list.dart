@@ -22,16 +22,14 @@ class StoreList extends StatelessWidget {
             child: Container(
               margin: const EdgeInsets.only(bottom: 10),
               padding: const EdgeInsets.all(8),
-              child: Scrollbar(
-                child: ListView.builder(
-                  itemCount: 15,
-                  itemBuilder: (context, index) {
-                    return const ListItem();
-                  }
-                ),
+              child: ListView.builder(
+                itemCount: 15,
+                itemBuilder: (context, index) {
+                  return const ListItem();
+                }
               ),
-            )
-          ),
+            ),
+          )
         ],
       ),
     );
