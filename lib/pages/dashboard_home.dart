@@ -1,4 +1,5 @@
 import 'package:dashboard/partners/partner_dashboard.dart';
+import 'package:dashboard/sales/store_dashboard.dart';
 import 'package:dashboard/widgets/dashboard_appbar.dart';
 import 'package:dashboard/widgets/sidebar.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ class DashboardHome extends StatefulWidget {
 
 class DashboardHomeState extends State<DashboardHome> {
   GlobalKey<ScaffoldState> layoutKey = GlobalKey();
-  Widget _homeView = const PartnerDashboard(); // TODO: debug 
+  Widget _homeView = const SalesDashboard(); // TODO: debug 
 
   void setHomeView(Widget homeView) => setState(() {
     _homeView = homeView;

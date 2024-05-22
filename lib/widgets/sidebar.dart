@@ -18,7 +18,7 @@ class SideBar extends StatelessWidget {
         ),
         SideBarItem(icon: Icons.shopping_cart_checkout_outlined,
           name: "Vendas",
-          destination: Redirect.toStoreDashboard()
+          destination: Redirect.toSalesDashboard()
         ),
         SideBarItem(
           icon: Icons.people_outline_sharp,
