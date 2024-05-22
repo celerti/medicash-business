@@ -3,7 +3,6 @@ import 'package:dashboard/widgets/dashboard_text.dart';
 import 'package:flutter/material.dart';
 
 class StoreList extends StatelessWidget {
-  // TODO: add new store if store count is zero
   const StoreList({super.key});
 
   @override

@@ -1,5 +1,4 @@
-import 'package:dashboard/pages/dashboard_home.dart';
-import 'package:dashboard/stores/store_dashboard.dart';
+import 'package:dashboard/partners/partner_dashboard.dart';
 import 'package:dashboard/widgets/dashboard_text.dart';
 import 'package:flutter/material.dart';
 
@@ -30,12 +29,22 @@ class ListItem extends StatelessWidget {
             fontFamily: "Noto Sans",
           ),
           const DashboardText(text: "6 usuários", fontFamily: "Noto Sans"),
-          InkWell(
-            onTap: (){
-              DashboardHomeState? homeState = context.findAncestorStateOfType<DashboardHomeState>();
-              homeState?.setHomeView(const StoreDashboard());
-            },
-            child: const Icon(Icons.remove_red_eye, color: Colors.deepPurpleAccent),
+          Row(
+            children: [
+              InkWell(
+                onTap: (){
+                  PartnerDashboardState? dashboardState = context.findAncestorStateOfType<PartnerDashboardState>();
+                  dashboardState?.setStore("Loja Medicash");
+                },
+                child: const Icon(Icons.remove_red_eye, color: Colors.deepPurpleAccent),
+              ),
+              InkWell(
+                onTap: (){
+                  // TODO: redirect to edit form
+                },
+                child: const Icon(Icons.edit_rounded, color: Colors.deepPurpleAccent),
+              )
+            ],
           )
         ],
       ),

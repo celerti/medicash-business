@@ -1,5 +1,3 @@
-import 'package:dashboard/partners/partner_dashboard.dart';
-import 'package:dashboard/stores/store_dashboard.dart';
 import 'package:dashboard/utils/redirect.dart';
 import 'package:dashboard/widgets/sidebar_item.dart';
 import 'package:dashboard/widgets/sidebar_profile.dart';

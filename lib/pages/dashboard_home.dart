@@ -1,5 +1,4 @@
 import 'package:dashboard/partners/partner_dashboard.dart';
-import 'package:dashboard/stores/store_dashboard.dart';
 import 'package:dashboard/widgets/dashboard_appbar.dart';
 import 'package:dashboard/widgets/sidebar.dart';
 import 'package:flutter/material.dart';
