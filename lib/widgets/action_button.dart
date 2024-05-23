@@ -18,24 +18,22 @@ class ActionButton extends StatefulWidget {
 class _ActionButtonState extends State<ActionButton> {
 
   Color? _buttonColor;
-  Color? _onHoverColor;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     _buttonColor = widget.color;
-    _onHoverColor = widget.onHoverColor;
   }
 
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
       onHover: widget.onHoverColor != null ? (event) => setState(() {
-        _buttonColor = Colors.deepPurpleAccent;
+        _buttonColor = widget.onHoverColor;
       }) : (event) => {},
       onExit: widget.onHoverColor != null ? (event) => setState(() {
-        _buttonColor = Colors.deepPurple[200];
+        _buttonColor = widget.color;
       }) : (event) => {},
       child: InkWell(
         onTap: widget.onTap,
