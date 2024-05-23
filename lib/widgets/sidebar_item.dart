@@ -1,4 +1,4 @@
-import 'package:dashboard/pages/dashboard_home.dart';
+import 'package:dashboard/home/dashboard_home.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 

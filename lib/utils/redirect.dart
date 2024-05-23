@@ -1,6 +1,6 @@
-import 'package:dashboard/pages/dashboard_users.dart';
+import 'package:dashboard/home/dashboard_users.dart';
 import 'package:dashboard/partners/partner_dashboard.dart';
-import 'package:dashboard/sales/store_dashboard.dart';
+import 'package:dashboard/sales/sales_dashboard.dart';
 
 abstract class Redirect {
   static PartnerDashboard toPartnerDashboard() => const PartnerDashboard();
