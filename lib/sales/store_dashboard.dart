@@ -1,3 +1,4 @@
+import 'package:dashboard/widgets/action_card.dart';
 import 'package:dashboard/widgets/dashboard_text.dart';
 import 'package:flutter/material.dart';
 
@@ -11,9 +12,10 @@ class SalesDashboard extends StatefulWidget {
 class _SalesDashboardState extends State<SalesDashboard> {
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: <Widget>[
-        Flexible(
+        // TODO: add search filters
+        const Flexible(
           child: Padding(
             padding: EdgeInsets.all(20),
             child: Row(
@@ -29,6 +31,31 @@ class _SalesDashboardState extends State<SalesDashboard> {
               ],
             ),
           ),
+        ),
+
+        Flexible(
+          flex: 2,
+          child: Padding(
+            padding: const EdgeInsets.only(
+              bottom: 10,
+              top: 10,
+              left: 20,
+              right: 20
+            ),
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.deepPurpleAccent,
+                  width: 3
+                ),
+                borderRadius: const BorderRadius.all(Radius.circular(10))
+              ),
+              child: ListView.builder(
+                itemCount: 5,
+                itemBuilder: (context, index) => ActionCard()
+              )
+            ),
+          )
         )
       ],
     );
