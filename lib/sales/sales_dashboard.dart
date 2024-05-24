@@ -1,6 +1,7 @@
-import 'package:dashboard/widgets/action_card.dart';
+import 'package:dashboard/sales/sales_card.dart';
 import 'package:dashboard/widgets/dashboard_text.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SalesDashboard extends StatefulWidget {
   const SalesDashboard({super.key});
@@ -10,23 +11,63 @@ class SalesDashboard extends StatefulWidget {
 }
 
 class _SalesDashboardState extends State<SalesDashboard> {
+
+  String? _orderBy;
+
+  @override
+  void initState() {
+    super.initState();
+    _orderBy = "most_recent";
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
         // TODO: add search filters
-        const Flexible(
+        Flexible(
           child: Padding(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                DashboardText(text: "Vendas efetuadas",
+                const DashboardText(text: "Vendas efetuadas",
                   fontFamily: "Noto Sans",
                   color: Colors.deepPurpleAccent,
                   fontWeight: FontWeight.bold,
                   size: 30,
+                ),
+                Expanded(
+                  child: Container()
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const DashboardText(
+                      text: "Ordenar por",
+                      fontFamily: "Noto Sans",
+                      color: Colors.deepPurpleAccent,
+                      fontWeight: FontWeight.w600,
+                      size: 16,
+                    ),
+                    DropdownMenu<String>(
+                      dropdownMenuEntries: const [
+                        DropdownMenuEntry(value: "most_recent", label: "Últimos 15 dias"),
+                        DropdownMenuEntry(value: "less_recent", label: "Últimos 30 dias"),
+                        DropdownMenuEntry(value: "higher_price", label: "Últimos 60 dias"),
+                        DropdownMenuEntry(value: "bigger_price", label: "Últimos 90 dias"),
+                      ],
+                      textStyle: GoogleFonts.getFont(
+                        "Noto Sans",
+                        color: Colors.black,
+                        fontSize: 16
+                      ),
+                      onSelected: (String? value) => setState(() {
+                        _orderBy = value;
+                      }),
+                      initialSelection: "30",
+                    ),
+                  ],
                 )
               ],
             ),
@@ -34,7 +75,7 @@ class _SalesDashboardState extends State<SalesDashboard> {
         ),
 
         Flexible(
-          flex: 2,
+          flex: 4,
           child: Padding(
             padding: const EdgeInsets.only(
               bottom: 10,
@@ -52,7 +93,7 @@ class _SalesDashboardState extends State<SalesDashboard> {
               ),
               child: ListView.builder(
                 itemCount: 5,
-                itemBuilder: (context, index) => ActionCard()
+                itemBuilder: (context, index) => SalesCard()
               )
             ),
           )

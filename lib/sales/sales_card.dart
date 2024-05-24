@@ -3,8 +3,8 @@ import 'package:dashboard/widgets/card_image.dart';
 import 'package:dashboard/widgets/dashboard_text.dart';
 import 'package:flutter/material.dart';
 
-class ActionCard extends StatelessWidget {
-  const ActionCard({super.key});
+class SalesCard extends StatelessWidget {
+  const SalesCard({super.key});
 
   @override
   Widget build(BuildContext context) {
