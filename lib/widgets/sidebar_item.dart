@@ -13,30 +13,36 @@ class SideBarItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: InkWell(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Icon(icon,
-              color: Colors.green[500]
-            ),
-            Text(name,
-              style: GoogleFonts.getFont(
-                "Noto Sans",
-                textStyle: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black
+    return LayoutBuilder(builder: (context, constraints) {
+      final bool isMobile = constraints.maxWidth < 1400;
+      return Container(
+        width: isMobile ? 360 : double.maxFinite,
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: InkWell(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Icon(icon,
+                  color: Colors.green[500]
+                ),
+                Text(name,
+                  style: GoogleFonts.getFont(
+                    "Noto Sans",
+                    textStyle: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black
+                    )
+                  )
                 )
-              )
-            )
-          ],
+              ],
+            ),
+            onTap: () => Navigator.pushNamed(context, destination)
+          ),
         ),
-        onTap: () => Get.toNamed(destination)
-      ),
-    );
+      );  
+    });
   }
 }
