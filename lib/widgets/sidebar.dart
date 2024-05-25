@@ -1,4 +1,3 @@
-import 'package:dashboard/utils/redirect.dart';
 import 'package:dashboard/widgets/sidebar_item.dart';
 import 'package:dashboard/widgets/sidebar_profile.dart';
 import 'package:flutter/material.dart';
@@ -8,22 +7,22 @@ class SideBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: <Widget>[
-        const SideBarProfile(), 
+        SideBarProfile(), 
         SideBarItem(
           icon: Icons.person_outlined,
           name: "Área do Parceiro",
-          destination: Redirect.toPartnerDashboard(),
+          destination: "/home"
         ),
         SideBarItem(icon: Icons.shopping_cart_checkout_outlined,
           name: "Vendas",
-          destination: Redirect.toSalesDashboard()
+          destination: "/sales"
         ),
         SideBarItem(
           icon: Icons.people_outline_sharp,
           name: "Usuários",
-          destination: Redirect.toUsersDashboard()
+          destination: "/home"
         ),
       ]
     );

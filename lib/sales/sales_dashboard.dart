@@ -52,10 +52,10 @@ class _SalesDashboardState extends State<SalesDashboard> {
                     ),
                     DropdownMenu<String>(
                       dropdownMenuEntries: const [
-                        DropdownMenuEntry(value: "most_recent", label: "Últimos 15 dias"),
-                        DropdownMenuEntry(value: "less_recent", label: "Últimos 30 dias"),
-                        DropdownMenuEntry(value: "higher_price", label: "Últimos 60 dias"),
-                        DropdownMenuEntry(value: "bigger_price", label: "Últimos 90 dias"),
+                        DropdownMenuEntry(value: "most_recent", label: "Mais recent"),
+                        DropdownMenuEntry(value: "less_recent", label: "Mais antigo"),
+                        DropdownMenuEntry(value: "higher_price", label: "Maior preço"),
+                        DropdownMenuEntry(value: "lower_price", label: "Menor preço"),
                       ],
                       textStyle: GoogleFonts.getFont(
                         "Noto Sans",

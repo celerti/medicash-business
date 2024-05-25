@@ -1,11 +1,11 @@
-import 'package:dashboard/home/dashboard_home.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 
 class SideBarItem extends StatelessWidget {
   final IconData icon;
   final String name;
-  final Widget destination;
+  final String destination;
   const SideBarItem({super.key,
   required this.icon,
   required this.name,
@@ -35,10 +35,7 @@ class SideBarItem extends StatelessWidget {
             )
           ],
         ),
-        onTap: () {
-          DashboardHomeState? homeState = context.findAncestorStateOfType<DashboardHomeState>();
-          homeState?.setHomeView(destination);
-        }
+        onTap: () => Get.toNamed(destination)
       ),
     );
   }

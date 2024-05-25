@@ -7,30 +7,33 @@ class StoreList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Flexible(
-      child: Column(
-        children: <Widget>[
-          const DashboardText(
-            text: "Lojas cadastradas", 
-            fontFamily: "Noto Sans",
-            size: 16,
-            color: Colors.deepPurpleAccent,
-            fontWeight: FontWeight.bold,
-          ),
-          Flexible(
-            child: Container(
-              margin: const EdgeInsets.only(bottom: 10),
-              padding: const EdgeInsets.all(8),
-              child: ListView.builder(
-                itemCount: 15,
-                itemBuilder: (context, index) {
-                  return const ListItem();
-                }
-              ),
+    return Column(
+      children: <Widget>[
+        const DashboardText(
+          text: "Lojas cadastradas", 
+          fontFamily: "Noto Sans",
+          size: 16,
+          color: Colors.deepPurpleAccent,
+          fontWeight: FontWeight.bold,
+        ),
+        Flexible(
+          child: Container(
+            margin: const EdgeInsets.only(bottom: 10),
+            padding: const EdgeInsets.only(
+              top: 10,
+              bottom: 10,
+              left: 30,
+              right: 30
             ),
-          )
-        ],
-      ),
+            child: ListView.builder(
+              itemCount: 15,
+              itemBuilder: (context, index) {
+                return const ListItem();
+              }
+            ),
+          ),
+        )
+      ],
     );
   }
 }

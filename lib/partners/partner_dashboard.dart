@@ -35,7 +35,12 @@ class PartnerDashboardState extends State<PartnerDashboard> {
       children: <Widget>[
         Flexible(
           child: Padding(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.only(
+              top: 10,
+              bottom: 10,
+              left: 20,
+              right: 20
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
@@ -102,12 +107,14 @@ class PartnerDashboardState extends State<PartnerDashboard> {
           child: PartnerStats()
         ),
         const Flexible(
-          flex: 2,
+          flex: 3,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              StatsPlot(), // TODO: possibly change these widgets to Stateful
-              StoreList()
+              Flexible(
+                child: StatsPlot()
+              ),
+              Flexible(child: StoreList())
             ],
           )
         )

@@ -4,16 +4,16 @@ import 'package:dashboard/widgets/dashboard_appbar.dart';
 import 'package:dashboard/widgets/sidebar.dart';
 import 'package:flutter/material.dart';
 
-class DashboardHome extends StatefulWidget {
-  const DashboardHome({super.key});
+class PartnersPage extends StatefulWidget {
+  const PartnersPage({super.key});
 
   @override
-  State<DashboardHome> createState() => DashboardHomeState();
+  State<PartnersPage> createState() => PartnersPageState();
 }
 
-class DashboardHomeState extends State<DashboardHome> {
+class PartnersPageState extends State<PartnersPage> {
   GlobalKey<ScaffoldState> layoutKey = GlobalKey();
-  Widget _homeView = const SalesDashboard(); // TODO: debug 
+  Widget _homeView = const PartnerDashboard();
 
   void setHomeView(Widget homeView) => setState(() {
     _homeView = homeView;

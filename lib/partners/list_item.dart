@@ -19,16 +19,20 @@ class ListItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          const DashboardText(
-            text: "Loja Medicash",
-            fontFamily: "Noto Sans",
-            fontWeight: FontWeight.bold,
+          Container(
+            padding: const EdgeInsets.only(left: 10),
+            child: const DashboardText(
+              text: "Loja Medicash",
+              fontFamily: "Noto Sans",
+              fontWeight: FontWeight.bold,
+            ),
           ),
-          const DashboardText(
-            text: "100 vendas",
-            fontFamily: "Noto Sans",
-          ),
-          const DashboardText(text: "6 usuários", fontFamily: "Noto Sans"),
+          Expanded(child: Container()),
+          // const DashboardText(
+          //   text: "100 vendas",
+          //   fontFamily: "Noto Sans",
+          // ),
+          // const DashboardText(text: "6 usuários", fontFamily: "Noto Sans"),
           Row(
             children: [
               InkWell(
