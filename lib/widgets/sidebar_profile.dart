@@ -7,37 +7,45 @@ class SideBarProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      color: Colors.deepPurpleAccent,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white
-              ),
-              alignment: Alignment.topCenter,
-              child: const Icon(Icons.person,
-                size: 100,
-                color: Colors.deepPurpleAccent,
+    return LayoutBuilder(builder: (context, constraints) {
+      bool isLarge = constraints.maxWidth > 1200;
+      return Container(
+        padding: EdgeInsets.only(
+          bottom: 16,
+          left: 16,
+          right: 16,
+          top: isLarge ? 16 : 48
+        ),
+        color: Colors.deepPurpleAccent,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.white
+                ),
+                alignment: Alignment.topCenter,
+                child: const Icon(Icons.person,
+                  size: 100,
+                  color: Colors.deepPurpleAccent,
+                ),
               ),
             ),
-          ),
-          const SizedBox(height: 10),
-          const DashboardText(text: 
-            "MedicashApp Partner",
-            fontFamily: "Noto Sans",
-            fontWeight: FontWeight.bold,
-            size: 16,
-            color: Colors.white,
-          ),
-          // TODO: logout button
-        ],
-      ),
-    );
+            const SizedBox(height: 10),
+            const DashboardText(text: 
+              "MedicashApp Partner",
+              fontFamily: "Noto Sans",
+              fontWeight: FontWeight.bold,
+              size: 16,
+              color: Colors.white,
+            ),
+            // TODO: logout button
+          ],
+        ),
+      );
+    });
   }
 }

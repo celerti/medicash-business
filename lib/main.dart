@@ -16,12 +16,18 @@ class MyApp extends StatelessWidget {
   // TODO: refactor to stateful, so we can impl login (?)
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       initialRoute: "/home",
-      routes: {
-        "/home": (context) => const PartnerPage(),
-        "/sales": (context) => const SalesPage()
-      },
+      getPages: [
+        GetPage(
+          name: "/home",
+          page: () => const PartnerPage()
+        ),
+        GetPage(
+          name: "/sales",
+          page: () => const SalesPage()
+        )
+      ],
       debugShowCheckedModeBanner: false,
       title: 'MedicashApp Dashboard',
       theme: ThemeData(

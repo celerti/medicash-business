@@ -14,8 +14,8 @@ class SideBarItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
-      final bool isMobile = constraints.maxWidth < 1400;
-      return Container(
+      final bool isMobile = constraints.maxWidth < 1200;
+      return SizedBox(
         width: isMobile ? 360 : double.maxFinite,
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -39,7 +39,7 @@ class SideBarItem extends StatelessWidget {
                 )
               ],
             ),
-            onTap: () => Navigator.pushNamed(context, destination)
+            onTap: () => Get.toNamed(destination)
           ),
         ),
       );  
