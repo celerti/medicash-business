@@ -39,7 +39,7 @@ class SideBarItem extends StatelessWidget {
                 )
               ],
             ),
-            onTap: () => Get.toNamed(destination)
+            onTap: () => Get.offAndToNamed(destination)
           ),
         ),
       );  

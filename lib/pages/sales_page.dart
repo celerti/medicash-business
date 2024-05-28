@@ -20,21 +20,26 @@ class SalesPageState extends State<SalesPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: DashboardAppBar.newAppBar(context, layoutKey),
-      body: Row(
-        children: <Widget>[
-          const Flexible(
-            flex: 1,
-            child: SideBar()
-          ),
-          // home screen
-          Flexible(
-            flex: 5,
-            child: _homeView
-          )
-        ],
-      )
-    );
+    return LayoutBuilder(builder: (context, constraints) {
+      final bool isMobile = constraints.maxWidth < 1400;
+      return Scaffold(
+        appBar: DashboardAppBar.newAppBar(context, layoutKey),
+        body: Row(
+          children: <Widget>[
+            if (!isMobile)
+            const Flexible(
+              flex: 1,
+              child: SideBar()
+            ),
+            // home screen
+            Flexible(
+              flex: isMobile ? 1 : 5,
+              child: _homeView
+            )
+          ],
+        ),
+        drawer: isMobile ? Drawer(child: const SideBar()) : null
+      );
+    });
   }
 }

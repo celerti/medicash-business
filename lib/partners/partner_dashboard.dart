@@ -33,7 +33,7 @@ class PartnerDashboardState extends State<PartnerDashboard> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        bool isLarge = constraints.maxWidth > 1200;
+        bool isLarge = constraints.maxWidth > 1400;
         return Column(
           children: <Widget>[
             Flexible(

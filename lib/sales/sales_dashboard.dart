@@ -22,83 +22,86 @@ class _SalesDashboardState extends State<SalesDashboard> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        // TODO: add search filters
-        Flexible(
-          child: Padding(
-            padding: const EdgeInsets.all(20),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                const DashboardText(text: "Vendas efetuadas",
-                  fontFamily: "Noto Sans",
-                  color: Colors.deepPurpleAccent,
-                  fontWeight: FontWeight.bold,
-                  size: 30,
-                ),
-                Expanded(
-                  child: Container()
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const DashboardText(
-                      text: "Ordenar por",
-                      fontFamily: "Noto Sans",
-                      color: Colors.deepPurpleAccent,
-                      fontWeight: FontWeight.w600,
-                      size: 16,
-                    ),
-                    DropdownMenu<String>(
-                      dropdownMenuEntries: const [
-                        DropdownMenuEntry(value: "most_recent", label: "Mais recent"),
-                        DropdownMenuEntry(value: "less_recent", label: "Mais antigo"),
-                        DropdownMenuEntry(value: "higher_price", label: "Maior preço"),
-                        DropdownMenuEntry(value: "lower_price", label: "Menor preço"),
-                      ],
-                      textStyle: GoogleFonts.getFont(
-                        "Noto Sans",
-                        color: Colors.black,
-                        fontSize: 16
+    return LayoutBuilder(builder: (context, constraints) {
+      bool isMobile = constraints.maxWidth < 1000;
+      return Column(
+        children: <Widget>[
+          // TODO: add search filters
+          Flexible(
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  DashboardText(text: "Vendas efetuadas",
+                    fontFamily: "Noto Sans",
+                    color: Colors.deepPurpleAccent,
+                    fontWeight: FontWeight.bold,
+                    size: isMobile ? 16 : 30,
+                  ),
+                  Expanded(
+                    child: Container()
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const DashboardText(
+                        text: "Ordenar por",
+                        fontFamily: "Noto Sans",
+                        color: Colors.deepPurpleAccent,
+                        fontWeight: FontWeight.w600,
+                        size: 16,
                       ),
-                      onSelected: (String? value) => setState(() {
-                        _orderBy = value;
-                      }),
-                      initialSelection: "30",
-                    ),
-                  ],
-                )
-              ],
+                      DropdownMenu<String>(
+                        dropdownMenuEntries: const [
+                          DropdownMenuEntry(value: "most_recent", label: "Mais recent"),
+                          DropdownMenuEntry(value: "less_recent", label: "Mais antigo"),
+                          DropdownMenuEntry(value: "higher_price", label: "Maior preço"),
+                          DropdownMenuEntry(value: "lower_price", label: "Menor preço"),
+                        ],
+                        textStyle: GoogleFonts.getFont(
+                          "Noto Sans",
+                          color: Colors.black,
+                          fontSize: 16
+                        ),
+                        onSelected: (String? value) => setState(() {
+                          _orderBy = value;
+                        }),
+                        initialSelection: "30",
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
-        ),
 
-        Flexible(
-          flex: 4,
-          child: Padding(
-            padding: const EdgeInsets.only(
-              bottom: 10,
-              top: 10,
-              left: 20,
-              right: 20
-            ),
-            child: Container(
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.deepPurpleAccent,
-                  width: 3
-                ),
-                borderRadius: const BorderRadius.all(Radius.circular(10))
+          Flexible(
+            flex: 4,
+            child: Padding(
+              padding: const EdgeInsets.only(
+                bottom: 10,
+                top: 10,
+                left: 20,
+                right: 20
               ),
-              child: ListView.builder(
-                itemCount: 5,
-                itemBuilder: (context, index) => SalesCard()
-              )
-            ),
+              child: Container(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.deepPurpleAccent,
+                    width: 3
+                  ),
+                  borderRadius: const BorderRadius.all(Radius.circular(10))
+                ),
+                child: ListView.builder(
+                  itemCount: 5,
+                  itemBuilder: (context, index) => SalesCard()
+                )
+              ),
+            )
           )
-        )
-      ],
-    );
+        ],
+      );
+    });  
   }
 }

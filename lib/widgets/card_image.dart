@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
 class CardImage extends StatelessWidget {
-  const CardImage({super.key});
+  final double size;
+  const CardImage({super.key, required this.size});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(5),
       margin: const EdgeInsets.only(left: 10),
-      height: 150,
-      width: 150,
+      height: size,
+      width: size,
       child: const ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(20)),
         child: Image(

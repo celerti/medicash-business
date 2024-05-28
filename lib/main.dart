@@ -1,7 +1,5 @@
 import 'package:dashboard/pages/partner_page.dart';
 import 'package:dashboard/pages/sales_page.dart';
-import 'package:dashboard/partners/partner_dashboard.dart';
-import 'package:dashboard/sales/sales_dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
