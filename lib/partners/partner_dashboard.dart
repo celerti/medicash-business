@@ -114,10 +114,10 @@ class PartnerDashboardState extends State<PartnerDashboard> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  if (constraints.maxWidth > 1200)
                   const Flexible(
                     child: StatsPlot()
                   ),
+                  if (constraints.maxWidth > 700)
                   const Flexible(child: StoreList())
                 ],
               )
