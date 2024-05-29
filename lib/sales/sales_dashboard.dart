@@ -50,11 +50,11 @@ class _SalesDashboardState extends State<SalesDashboard> {
                         fontFamily: "Noto Sans",
                         color: Colors.deepPurpleAccent,
                         fontWeight: FontWeight.w600,
-                        size: 16,
+                        size: 14,
                       ),
                       DropdownMenu<String>(
                         dropdownMenuEntries: const [
-                          DropdownMenuEntry(value: "most_recent", label: "Mais recent"),
+                          DropdownMenuEntry(value: "most_recent", label: "Mais recente"),
                           DropdownMenuEntry(value: "less_recent", label: "Mais antigo"),
                           DropdownMenuEntry(value: "higher_price", label: "Maior preço"),
                           DropdownMenuEntry(value: "lower_price", label: "Menor preço"),
@@ -62,12 +62,12 @@ class _SalesDashboardState extends State<SalesDashboard> {
                         textStyle: GoogleFonts.getFont(
                           "Noto Sans",
                           color: Colors.black,
-                          fontSize: 16
+                          fontSize: isMobile ? 12 : 16
                         ),
                         onSelected: (String? value) => setState(() {
                           _orderBy = value;
                         }),
-                        initialSelection: "30",
+                        initialSelection: "most_recent",
                       ),
                     ],
                   )
@@ -95,7 +95,9 @@ class _SalesDashboardState extends State<SalesDashboard> {
                 ),
                 child: ListView.builder(
                   itemCount: 5,
-                  itemBuilder: (context, index) => SalesCard()
+                  itemBuilder: (context, index) { 
+                    return const SalesCard();
+                  }
                 )
               ),
             )

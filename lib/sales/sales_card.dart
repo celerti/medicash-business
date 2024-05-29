@@ -18,7 +18,7 @@ class SalesCard extends StatelessWidget {
           right: 20
         ),
         child: Container(
-          height: 150,
+          height: isMobile ? 120 : 150,
           decoration: BoxDecoration(
             border: Border.all(
               color: Colors.deepPurpleAccent,
@@ -29,7 +29,7 @@ class SalesCard extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              CardImage(size: isMobile ? 100 : 150),
+              // CardImage(size: isMobile ? 90 : 150),
               Container(
                 margin: const EdgeInsets.only(left: 10, top: 10),
                 child: Column(
@@ -41,13 +41,13 @@ class SalesCard extends StatelessWidget {
                       size: isMobile ? 16 : 25,
                       fontWeight: FontWeight.bold
                     ),
-                    DashboardText(
+                    const DashboardText(
                       text: "5% de cashback",
                       fontFamily: "Noto Sans",
                       color: Colors.deepPurpleAccent,
                       fontWeight: FontWeight.w600,
                     ),
-                    Row(
+                    const Row(
                       children: <Widget>[
                         Icon(
                           Icons.calendar_month_rounded,
@@ -61,7 +61,7 @@ class SalesCard extends StatelessWidget {
                         ),
                       ]
                     ),
-                    Row(
+                    const Row(
                       children: <Widget>[
                         Icon(
                           Icons.location_on_sharp,
