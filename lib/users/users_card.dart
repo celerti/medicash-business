@@ -3,9 +3,8 @@ import 'package:dashboard/widgets/card_image.dart';
 import 'package:dashboard/widgets/dashboard_text.dart';
 import 'package:flutter/material.dart';
 
-class SalesCard extends StatelessWidget {
-  final VoidCallback? redirect;
-  const SalesCard({super.key, this.redirect});
+class UsersCard extends StatelessWidget {
+  const UsersCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,45 +36,53 @@ class SalesCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     DashboardText(
-                      text: "Leader Laboratory",
+                      text: "Leader Manager",
                       fontFamily: "Noto Sans",
                       size: isMobile ? 16 : 25,
                       fontWeight: FontWeight.bold
                     ),
-                    const DashboardText(
-                      text: "5% de cashback",
-                      fontFamily: "Noto Sans",
-                      color: Colors.deepPurpleAccent,
-                      fontWeight: FontWeight.w600,
+                    const Row(
+                      children: <Widget>[
+                        Icon(
+                          Icons.store,
+                          color: Colors.greenAccent,
+                        ),
+                        DashboardText(
+                          text: "1 gerência cadastrada", 
+                          fontFamily: "Noto Sans",
+                          size: 12,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ]
+                    ),
+                    const Row(
+                      children: <Widget>[
+                        Icon(
+                          Icons.shopping_cart,
+                          color: Colors.amberAccent,
+                        ),
+                        DashboardText(
+                          text: "15 vendas realizadas", 
+                          fontFamily: "Noto Sans",
+                          size: 12,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ]
                     ),
                     const Row(
                       children: <Widget>[
                         Icon(
                           Icons.calendar_month_rounded,
-                          color: Colors.amberAccent,
+                          color: Colors.deepPurpleAccent,
                         ),
                         DashboardText(
-                          text: "31/10/2024", 
+                          text: "Cadastrado em: 25/10/2024", 
                           fontFamily: "Noto Sans",
                           size: 12,
                           fontWeight: FontWeight.w500,
                         ),
                       ]
                     ),
-                    const Row(
-                      children: <Widget>[
-                        Icon(
-                          Icons.location_on_sharp,
-                          color: Colors.greenAccent,
-                        ),
-                        DashboardText(
-                          text: "Loja Medicash", 
-                          fontFamily: "Noto Sans",
-                          size: 12,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ]
-                    )
                   ],
                 ),
               ),
@@ -85,7 +92,7 @@ class SalesCard extends StatelessWidget {
                 margin: const EdgeInsets.only(top: 10, right: 10),
                 child: ActionButton(
                   icon: Icons.remove_red_eye,
-                  onTap: redirect,
+                  onTap: () {},
                   color: Colors.deepPurple[200],
                   onHoverColor: Colors.deepPurpleAccent,
                 ),
@@ -98,8 +105,8 @@ class SalesCard extends StatelessWidget {
         return card;
       } else {
         return InkWell(
-          onTap: redirect,
-          child: card
+          child: card,
+          onTap: () {}
         );
       }
     });

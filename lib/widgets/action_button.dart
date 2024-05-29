@@ -4,7 +4,7 @@ class ActionButton extends StatefulWidget {
   final IconData icon;
   final Color? color;
   final Color? onHoverColor;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   const ActionButton({super.key, 
   required this.icon,
   required this.onTap, 
@@ -21,7 +21,6 @@ class _ActionButtonState extends State<ActionButton> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _buttonColor = widget.color;
   }

@@ -11,12 +11,17 @@ class CardImage extends StatelessWidget {
       margin: const EdgeInsets.only(left: 10),
       height: size,
       width: size,
-      child: const ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(20)),
-        child: Image(
-          image: AssetImage("assets/images/image_asset1.jpg"),
-          fit: BoxFit.none,
-        ),
+      child: ClipRRect(
+        borderRadius: const BorderRadius.all(Radius.circular(20)),
+        // child: Image(
+        //   image: AssetImage("assets/images/image_asset1.jpg"),
+        //   fit: BoxFit.none,
+        // ),
+        child: Icon(
+          Icons.image,
+          color: Colors.deepPurpleAccent,
+          size: size,
+        )
       )
     );
   }

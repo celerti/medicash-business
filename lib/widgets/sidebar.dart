@@ -22,7 +22,7 @@ class SideBar extends StatelessWidget {
         SideBarItem(
           icon: Icons.people_outline_sharp,
           name: "Usuários",
-          destination: "/home"
+          destination: "/users"
         ),
       ]
     );

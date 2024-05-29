@@ -1,10 +1,10 @@
-import 'package:dashboard/sales/sales_dashboard.dart';
+import 'package:dashboard/users/users_dashboard.dart';
 import 'package:dashboard/widgets/dashboard_appbar.dart';
 import 'package:dashboard/widgets/sidebar.dart';
 import 'package:flutter/material.dart';
 
-class SalesPage extends StatelessWidget {
-  const SalesPage({super.key});
+class UsersPage extends StatelessWidget {
+  const UsersPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class SalesPage extends StatelessWidget {
             // home screen
             Flexible(
               flex: isMobile ? 1 : 5,
-              child: const SalesDashboard()
+              child: const UsersDashboard()
             )
           ],
         ),

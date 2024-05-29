@@ -1,5 +1,8 @@
 import 'package:dashboard/pages/partner_page.dart';
+import 'package:dashboard/pages/routing_pages.dart';
 import 'package:dashboard/pages/sales_page.dart';
+import 'package:dashboard/pages/users_page.dart';
+import 'package:dashboard/sales/sales_details.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,15 +18,23 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      initialRoute: "/home",
+      initialRoute: MedicashPages.home.value,
       getPages: [
         GetPage(
-          name: "/home",
+          name: MedicashPages.home.value,
           page: () => const PartnerPage()
         ),
         GetPage(
-          name: "/sales",
+          name: MedicashPages.sales.value,
           page: () => const SalesPage()
+        ),
+        GetPage(
+          name: MedicashPages.users.value,
+          page: () => const UsersPage()
+        ),
+        GetPage(
+          name: MedicashPages.salesdetails.value,
+          page: () => const SalesDetails()
         )
       ],
       debugShowCheckedModeBanner: false,

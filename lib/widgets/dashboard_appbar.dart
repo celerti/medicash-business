@@ -2,7 +2,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 
 abstract class DashboardAppBar {
-  static AppBar newAppBar(BuildContext context, GlobalKey<ScaffoldState> key) 
+  static AppBar newAppBar(BuildContext context) 
   => AppBar(
     backgroundColor: Colors.deepPurpleAccent,
     elevation: 0,

@@ -3,27 +3,15 @@ import 'package:dashboard/widgets/dashboard_appbar.dart';
 import 'package:dashboard/widgets/sidebar.dart';
 import 'package:flutter/material.dart';
 
-class PartnerPage extends StatefulWidget {
+class PartnerPage extends StatelessWidget {
   const PartnerPage({super.key});
-
-  @override
-  State<PartnerPage> createState() => PartnerPageState();
-}
-
-class PartnerPageState extends State<PartnerPage> {
-  GlobalKey<ScaffoldState> layoutKey = GlobalKey();
-  Widget _homeView = const PartnerDashboard();
-
-  void setHomeView(Widget homeView) => setState(() {
-    _homeView = homeView;
-  });
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
       final bool isMobile = constraints.maxWidth < 1400;
       return Scaffold(
-        appBar: DashboardAppBar.newAppBar(context, layoutKey),
+        appBar: DashboardAppBar.newAppBar(context),
         body: Row(
           children: <Widget>[
             if (!isMobile)
@@ -34,11 +22,11 @@ class PartnerPageState extends State<PartnerPage> {
             // home screen
             Flexible(
               flex: isMobile ? 1 : 5,
-              child: _homeView
+              child: const PartnerDashboard()
             )
           ],
         ),
-        drawer: isMobile ? Drawer(child: const SideBar()) : null
+        drawer: isMobile ? const Drawer(child: SideBar()) : null
       );
     });
   }
