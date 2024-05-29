@@ -43,6 +43,7 @@ class _SalesDashboardState extends State<SalesDashboard> {
                     child: Container()
                   ),
                   Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const DashboardText(

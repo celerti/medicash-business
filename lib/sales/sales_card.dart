@@ -29,7 +29,7 @@ class SalesCard extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              // CardImage(size: isMobile ? 90 : 150),
+              CardImage(size: isMobile ? 90 : 150),
               Container(
                 margin: const EdgeInsets.only(left: 10, top: 10),
                 child: Column(
