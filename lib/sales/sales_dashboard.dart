@@ -1,4 +1,4 @@
-import 'package:dashboard/pages/routing_pages.dart';
+import 'package:dashboard/controllers/sales_controller.dart';
 import 'package:dashboard/sales/sales_card.dart';
 import 'package:dashboard/widgets/dashboard_text.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +24,7 @@ class _SalesDashboardState extends State<SalesDashboard> {
 
   @override
   Widget build(BuildContext context) {
+    final SalesController controller = Get.find();
     return LayoutBuilder(builder: (context, constraints) {
       bool isMobile = constraints.maxWidth < 1000;
       return Column(
@@ -104,7 +105,7 @@ class _SalesDashboardState extends State<SalesDashboard> {
                         itemCount: 5,
                         itemBuilder: (context, index) { 
                           return SalesCard(
-                            redirect: () => Get.toNamed(MedicashPages.salesdetails.value),
+                            redirect: () => controller.toSalesDetails(),
                           );
                         }
                       )

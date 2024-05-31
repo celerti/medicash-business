@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: MedicashPages.salesdetails.value,
           page: () => const SalesDetails()
-        )
+        ),
       ],
       debugShowCheckedModeBanner: false,
       title: 'MedicashApp Dashboard',
