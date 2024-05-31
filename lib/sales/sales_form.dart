@@ -2,7 +2,14 @@ import 'package:dashboard/widgets/dashboard_text.dart';
 import 'package:flutter/material.dart';
 
 class SalesForm extends StatelessWidget {
-  const SalesForm({super.key});
+  /* 
+    TODO: refactor constructor so as to use this
+    for both view and create actions
+  */
+  final bool viewAction;
+  const SalesForm({
+    super.key,
+  this.viewAction=true});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +41,7 @@ class SalesForm extends StatelessWidget {
                       size: 40,
                     )
                   ),
-                  readOnly: true
+                  readOnly: viewAction,
                 ),
               ),
               Container(
@@ -60,7 +67,7 @@ class SalesForm extends StatelessWidget {
                       size: 40,
                     )
                   ),
-                  readOnly: true
+                  readOnly: viewAction,
                 )
               ),
               Container(
@@ -86,7 +93,7 @@ class SalesForm extends StatelessWidget {
                       size: 40,
                     )
                   ),
-                  readOnly: true
+                  readOnly: viewAction,
                 )
               ),
             ],
@@ -115,7 +122,7 @@ class SalesForm extends StatelessWidget {
                       size: 40,
                     )
                   ),
-                  readOnly: true
+                  readOnly: viewAction,
                 ),
               ),
               Container(
@@ -140,7 +147,7 @@ class SalesForm extends StatelessWidget {
                       size: 40,
                     )
                   ),
-                  readOnly: true
+                  readOnly: viewAction,
                 ),
               ),
               Container(
@@ -165,7 +172,7 @@ class SalesForm extends StatelessWidget {
                       size: 40,
                     )
                   ),
-                  readOnly: true
+                  readOnly: viewAction,
                 ),
               ),
             ],
@@ -194,7 +201,7 @@ class SalesForm extends StatelessWidget {
                       size: 40,
                     )
                   ),
-                  readOnly: true
+                  readOnly: viewAction,
                 ),
               ),
               Container(
@@ -219,7 +226,7 @@ class SalesForm extends StatelessWidget {
                       size: 40,
                     )
                   ),
-                  readOnly: true
+                  readOnly: viewAction,
                 ),
               )
             ],
