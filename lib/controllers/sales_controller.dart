@@ -7,6 +7,8 @@ class SalesController extends GetxController {
   final SalesDashboard _mainContent = const SalesDashboard();
   late Rx<Widget> bodyContent = Rx<Widget>(_mainContent);
 
-  void toSalesDetails () => bodyContent.value = const SalesDetails(); 
+  void toSalesDetails () => bodyContent.value = const SalesDetails();
+
+  void toMain() => bodyContent.value = _mainContent;
 
 }

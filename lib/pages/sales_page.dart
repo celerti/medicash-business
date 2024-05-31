@@ -1,5 +1,4 @@
 import 'package:dashboard/controllers/sales_controller.dart';
-import 'package:dashboard/sales/sales_dashboard.dart';
 import 'package:dashboard/widgets/dashboard_appbar.dart';
 import 'package:dashboard/widgets/sidebar.dart';
 import 'package:flutter/material.dart';
