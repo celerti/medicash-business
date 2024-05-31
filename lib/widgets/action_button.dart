@@ -5,11 +5,15 @@ class ActionButton extends StatefulWidget {
   final Color? color;
   final Color? onHoverColor;
   final VoidCallback? onTap;
+  final Color? onTriggerColor;
+  final double? size;
   const ActionButton({super.key, 
   required this.icon,
   required this.onTap, 
   required this.color,
-  this.onHoverColor});
+  this.onHoverColor,
+  this.onTriggerColor,
+  this.size});
 
   @override
   State<ActionButton> createState() => _ActionButtonState();
@@ -17,12 +21,15 @@ class ActionButton extends StatefulWidget {
 
 class _ActionButtonState extends State<ActionButton> {
 
-  Color? _buttonColor;
+  late Color? _buttonColor;
+  late bool _toggleButton;
+  
 
   @override
   void initState() {
     super.initState();
     _buttonColor = widget.color;
+    _toggleButton = false;
   }
 
   @override
@@ -35,10 +42,19 @@ class _ActionButtonState extends State<ActionButton> {
         _buttonColor = widget.color;
       }) : (event) => {},
       child: InkWell(
-        onTap: widget.onTap,
+        onTap: () {
+          if (widget.onTriggerColor != null) {
+            setState(() {
+              _toggleButton = !_toggleButton;
+              _buttonColor = _toggleButton ? widget.onTriggerColor : widget.color;
+            });
+          }
+          widget.onTap!();
+        },
         child: Icon(
           widget.icon,
           color: _buttonColor,
+          size: widget.size
         ),
       ),
     );
