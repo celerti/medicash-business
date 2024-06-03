@@ -4,7 +4,9 @@ import 'package:dashboard/widgets/dashboard_text.dart';
 import 'package:flutter/material.dart';
 
 class UsersCard extends StatelessWidget {
-  const UsersCard({super.key});
+  final VoidCallback? onTap;
+  const UsersCard({super.key,
+  this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class UsersCard extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              CardImage(size: isMobile ? 90 : 150),
+              CardImage(size: isMobile ? 80 : 150),
               Container(
                 margin: const EdgeInsets.only(left: 10, top: 10),
                 child: Column(
@@ -92,7 +94,7 @@ class UsersCard extends StatelessWidget {
                 margin: const EdgeInsets.only(top: 10, right: 10),
                 child: ActionButton(
                   icon: Icons.remove_red_eye,
-                  onTap: () {},
+                  onTap: onTap,
                   color: Colors.deepPurple[200],
                   onHoverColor: Colors.deepPurpleAccent,
                 ),
@@ -105,8 +107,8 @@ class UsersCard extends StatelessWidget {
         return card;
       } else {
         return InkWell(
-          child: card,
-          onTap: () {}
+          onTap: onTap,
+          child: card
         );
       }
     });

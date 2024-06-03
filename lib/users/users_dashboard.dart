@@ -1,6 +1,8 @@
+import 'package:dashboard/controllers/users_controller.dart';
 import 'package:dashboard/users/users_card.dart';
 import 'package:dashboard/widgets/dashboard_text.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class UsersDashboard extends StatefulWidget {
   const UsersDashboard({super.key});
@@ -13,6 +15,7 @@ class _UsersDashboardState extends State<UsersDashboard> {
 
   @override
   Widget build(BuildContext context) {
+    final UsersController controller = Get.find();
     return LayoutBuilder(builder: (context, constraints) {
       bool isMobile = constraints.maxWidth < 1000;
       return Column(
@@ -55,7 +58,9 @@ class _UsersDashboardState extends State<UsersDashboard> {
                 child: ListView.builder(
                   itemCount: 5,
                   itemBuilder: (context, index) { 
-                    return const UsersCard();
+                    return UsersCard(
+                      onTap: () => controller.toUsersDetails(),
+                    );
                   }
                 )
               ),

@@ -1,20 +1,34 @@
-import 'package:dashboard/controllers/sales_controller.dart';
-import 'package:dashboard/sales/sales_form.dart';
+import 'package:dashboard/controllers/users_controller.dart';
+import 'package:dashboard/users/users_form.dart';
 import 'package:dashboard/widgets/action_button.dart';
 import 'package:dashboard/widgets/dashboard_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SalesDetails extends StatelessWidget {
-  const SalesDetails({super.key});
+class UsersDetails extends StatefulWidget {
+  const UsersDetails({super.key});
+
+  @override
+  State<UsersDetails> createState() => _UsersDetailsState();
+}
+
+class _UsersDetailsState extends State<UsersDetails> {
+
+  late bool _isEditAction;
+
+  @override
+  void initState() {
+    super.initState();
+    _isEditAction = false;
+  }
 
   @override
   Widget build(BuildContext context) {
-    final SalesController controller = Get.find();
+    final UsersController controller = Get.find();
+    double screenWidth = context.width;
+    bool isMediumSize = screenWidth > 1000;
     return LayoutBuilder(
       builder: (context, constraints) {
-        double screenWidth = context.width;
-        bool isMediumSize = screenWidth > 1000;
         return Padding(
           padding: const EdgeInsets.all(20),
           child: Column(
@@ -39,23 +53,37 @@ class SalesDetails extends StatelessWidget {
                       ),
                     ),
                     DashboardText(
-                      text: "Informativo sobre venda",
+                      text: "Cadastro de usuário",
                       fontFamily: "Noto Sans",
                       size: isMediumSize ? 30 : 16,
                       color: Colors.deepPurpleAccent,
                       fontWeight: FontWeight.bold,
+                    ),
+                    Expanded(child: Container()),
+                    ActionButton(
+                      icon: _isEditAction ? Icons.save : Icons.edit,
+                      onTap: () {
+                        setState(() {
+                          _isEditAction = !_isEditAction;
+                        });
+                      },
+                      color: Colors.deepPurple[300],
+                      onHoverColor: Colors.deepPurpleAccent,
+                      onTriggerColor: Colors.deepPurpleAccent
                     )
                   ],
                 ),
               ),
-              const Flexible(
+              Flexible(
                 flex: 4,
-                child: SalesForm()
+                child: UsersForm(
+                  viewAction: !_isEditAction,
+                ),
               )
             ],
           ),
         );
-      }
+      },
     );
   }
 }

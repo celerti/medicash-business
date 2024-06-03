@@ -2,13 +2,13 @@ import 'package:dashboard/widgets/form_params.dart';
 import 'package:dashboard/widgets/form_widget.dart';
 import 'package:flutter/material.dart';
 
-class SalesForm extends StatelessWidget {
+class UsersForm extends StatelessWidget {
   /* 
     TODO: refactor constructor so as to use this
     for both view and create actions
   */
   final bool viewAction;
-  const SalesForm({
+  const UsersForm({
     super.key,
   this.viewAction=true});
 
@@ -92,7 +92,7 @@ class SalesForm extends StatelessWidget {
             icon: formParams.icon,
             fieldName: formParams.fieldName,
             fieldValue: formParams.fieldValue,
-            viewAction: true,
+            viewAction: viewAction,
           );
         }
       )
