@@ -3,6 +3,7 @@ import 'package:dashboard/partners/store_list.dart';
 import 'package:dashboard/widgets/dashboard_text.dart';
 import 'package:dashboard/widgets/stats_plot.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PartnerDashboard extends StatefulWidget {
@@ -33,7 +34,8 @@ class PartnerDashboardState extends State<PartnerDashboard> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        bool isLarge = constraints.maxWidth > 1400;
+        bool isLarge = context.width > 1400;
+        bool isMedium = context.width > 800;
         return Column(
           children: <Widget>[
             Flexible(
@@ -66,7 +68,7 @@ class PartnerDashboardState extends State<PartnerDashboard> {
                       text: _store!.isEmpty ? "Todas as lojas" : _store!,
                       color: Colors.deepPurpleAccent,
                       fontFamily: "Noto Sans",
-                      size: constraints.maxWidth >= 1200 ? 30 : 15,
+                      size: isMedium ? 30 : 15,
                       fontWeight: FontWeight.w700,
                     ),
                     Expanded(

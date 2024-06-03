@@ -1,5 +1,7 @@
-import 'package:dashboard/widgets/dashboard_text.dart';
+import 'package:dashboard/widgets/form_params.dart';
+import 'package:dashboard/widgets/form_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SalesForm extends StatelessWidget {
   /* 
@@ -13,226 +15,88 @@ class SalesForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // final screenWidth = Get.context!.size?.width;
+    List<FormParams> formParamsList = const [
+      FormParams(
+        fieldName: "Produto",
+        fieldValue: "Leader Laboratory",
+        fieldHeight: 100,
+        fieldWidth: 100,
+        icon: Icons.shopping_cart
+      ),
+      FormParams(
+        fieldName: "Data",
+        fieldValue: "31/05/2024",
+        fieldHeight: 100,
+        fieldWidth: 100,
+        icon: Icons.calendar_month
+      ),
+      FormParams(
+        fieldName: "Loja",
+        fieldValue: "MedicashApp Store",
+        fieldHeight: 100,
+        fieldWidth: 100,
+        icon: Icons.location_on
+      ),
+      FormParams(
+        fieldName: "Nome do cliente",
+        fieldValue: "MedicashApp Client",
+        fieldHeight: 100,
+        fieldWidth: 100,
+        icon: Icons.person
+      ),
+      FormParams(
+        fieldName: "Forma de pagamento",
+        fieldValue: "Leader Laboratory",
+        fieldHeight: 100,
+        fieldWidth: 100,
+        icon: Icons.payment
+      ),
+      FormParams(
+        fieldName: "Valor",
+        fieldValue: "R\$ 100,00",
+        fieldHeight: 100,
+        fieldWidth: 100,
+        icon: Icons.paid
+      ),
+      FormParams(
+        fieldName: "Produto",
+        fieldValue: "Leader Laboratory",
+        fieldHeight: 100,
+        fieldWidth: 100,
+        icon: Icons.badge
+      ),
+      FormParams(
+        fieldName: "Produto",
+        fieldValue: "Leader Laboratory",
+        fieldHeight: 100,
+        fieldWidth: 100,
+        icon: Icons.currency_exchange
+      )
+    ];
     return Padding(
       padding: const EdgeInsets.all(20),
-      child: Column(
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              Container(
-                margin: const EdgeInsets.only(
-                  right: 30
-                ),
-                height: 100,
-                width: 200,
-                child: TextFormField(
-                  initialValue: "Leader Laboratory",
-                  decoration: InputDecoration(
-                    label: const DashboardText(
-                      text: "Produto",
-                      fontFamily: "Noto Sans",
-                      color: Colors.deepPurpleAccent,
-                      fontWeight: FontWeight.w700,
-                      size: 16,
-                    ),
-                    icon: Icon(
-                      Icons.shopping_cart,
-                      color: Colors.green[500],
-                      size: 40,
-                    )
-                  ),
-                  readOnly: viewAction,
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.only(
-                  left: 30,
-                  right: 30
-                ),
-                height: 100,
-                width: 200,
-                child: TextFormField(
-                  initialValue: "31/05/2024",
-                  decoration: InputDecoration(
-                    label: const DashboardText(
-                      text: "Data",
-                      fontFamily: "Noto Sans",
-                      color: Colors.deepPurpleAccent,
-                      fontWeight: FontWeight.w700,
-                      size: 16,
-                    ),
-                    icon: Icon(
-                      Icons.calendar_month_rounded,
-                      color: Colors.green[500],
-                      size: 40,
-                    )
-                  ),
-                  readOnly: viewAction,
-                )
-              ),
-              Container(
-                margin: const EdgeInsets.only(
-                  left: 30,
-                  right: 30
-                ),
-                height: 100,
-                width: 300,
-                child: TextFormField(
-                  initialValue: "MedicashApp Store",
-                  decoration: InputDecoration(
-                    label: const DashboardText(
-                      text: "Loja",
-                      fontFamily: "Noto Sans",
-                      color: Colors.deepPurpleAccent,
-                      fontWeight: FontWeight.w700,
-                      size: 16,
-                    ),
-                    icon: Icon(
-                      Icons.location_on,
-                      color: Colors.green[500],
-                      size: 40,
-                    )
-                  ),
-                  readOnly: viewAction,
-                )
-              ),
-            ],
-          ),
-          Row(
-            children: <Widget>[
-              Container(
-                margin: const EdgeInsets.only(
-                  right: 30
-                ),
-                height: 100,
-                width: 400,
-                child: TextFormField(
-                  initialValue: "MedicashApp Client",
-                  decoration: InputDecoration(
-                    label: const DashboardText(
-                      text: "Nome do cliente",
-                      fontFamily: "Noto Sans",
-                      color: Colors.deepPurpleAccent,
-                      fontWeight: FontWeight.w700,
-                      size: 16,
-                    ),
-                    icon: Icon(
-                      Icons.person,
-                      color: Colors.green[500],
-                      size: 40,
-                    )
-                  ),
-                  readOnly: viewAction,
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.only(
-                  right: 30
-                ),
-                height: 100,
-                width: 200,
-                child: TextFormField(
-                  initialValue: "Pix",
-                  decoration: InputDecoration(
-                    label: const DashboardText(
-                      text: "Forma de pagamento",
-                      fontFamily: "Noto Sans",
-                      color: Colors.deepPurpleAccent,
-                      fontWeight: FontWeight.w700,
-                      size: 16,
-                    ),
-                    icon: Icon(
-                      Icons.payment,
-                      color: Colors.green[500],
-                      size: 40,
-                    )
-                  ),
-                  readOnly: viewAction,
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.only(
-                  right: 30
-                ),
-                height: 100,
-                width: 200,
-                child: TextFormField(
-                  initialValue: "R\$ 100,00",
-                  decoration: InputDecoration(
-                    label: const DashboardText(
-                      text: "Valor",
-                      fontFamily: "Noto Sans",
-                      color: Colors.deepPurpleAccent,
-                      fontWeight: FontWeight.w700,
-                      size: 16,
-                    ),
-                    icon: Icon(
-                      Icons.paid,
-                      color: Colors.green[500],
-                      size: 40,
-                    )
-                  ),
-                  readOnly: viewAction,
-                ),
-              ),
-            ],
-          ),
-          Row(
-            children: <Widget>[
-              Container(
-                margin: const EdgeInsets.only(
-                  right: 30
-                ),
-                height: 100,
-                width: 400,
-                child: TextFormField(
-                  initialValue: "MedicashApp Salesman",
-                  decoration: InputDecoration(
-                    label: const DashboardText(
-                      text: "Nome do vendedor",
-                      fontFamily: "Noto Sans",
-                      color: Colors.deepPurpleAccent,
-                      fontWeight: FontWeight.w700,
-                      size: 16,
-                    ),
-                    icon: Icon(
-                      Icons.badge,
-                      color: Colors.green[500],
-                      size: 40,
-                    )
-                  ),
-                  readOnly: viewAction,
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.only(
-                  right: 30
-                ),
-                height: 100,
-                width: 200,
-                child: TextFormField(
-                  initialValue: "5%",
-                  decoration: InputDecoration(
-                    label: const DashboardText(
-                      text: "Cashback gerado",
-                      fontFamily: "Noto Sans",
-                      color: Colors.deepPurpleAccent,
-                      fontWeight: FontWeight.w700,
-                      size: 16,
-                    ),
-                    icon: Icon(
-                      Icons.currency_exchange,
-                      color: Colors.green[500],
-                      size: 40,
-                    )
-                  ),
-                  readOnly: viewAction,
-                ),
-              )
-            ],
-          )
-        ],
-      ),
+      child: GridView.builder(
+        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+          maxCrossAxisExtent: 400,
+          mainAxisExtent: 100,
+          childAspectRatio: 1,
+          crossAxisSpacing: 20,
+          mainAxisSpacing: 20
+        ),
+        itemCount: formParamsList.length,
+        itemBuilder: (context, index) {
+          var formParams = formParamsList[index];
+          return FormWidget(
+            width: formParams.fieldWidth,
+            height: formParams.fieldHeight,
+            icon: formParams.icon,
+            fieldName: formParams.fieldName,
+            fieldValue: formParams.fieldValue,
+            viewAction: true,
+          );
+        }
+      )
     );
   }
 }

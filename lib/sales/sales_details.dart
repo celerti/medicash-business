@@ -11,46 +11,52 @@ class SalesDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final SalesController controller = Get.find();
-    return Padding(
-      padding: const EdgeInsets.all(20),
-      child: Column(
-        children: <Widget>[
-          Flexible(
-            child: Row(
-              children: <Widget>[
-                Container(
-                  margin: const EdgeInsets.only(right: 10),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    // borderRadius: BorderRadius.circular(10),
-                    color: Colors.white,
-                    border: Border.all(
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        double screenWidth = context.width;
+        bool isMediumSize = screenWidth > 1000;
+        return Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            children: <Widget>[
+              Flexible(
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      margin: const EdgeInsets.only(right: 10),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        // borderRadius: BorderRadius.circular(10),
+                        color: Colors.white,
+                        border: Border.all(
+                          color: Colors.deepPurpleAccent,
+                          width: 2
+                        )
+                      ),
+                      child: ActionButton(
+                        icon: Icons.arrow_back_rounded,
+                        onTap: () => controller.toMain(),
+                        color: Colors.deepPurpleAccent
+                      ),
+                    ),
+                    DashboardText(
+                      text: "Informativo sobre venda",
+                      fontFamily: "Noto Sans",
+                      size: isMediumSize ? 30 : 16,
                       color: Colors.deepPurpleAccent,
-                      width: 2
+                      fontWeight: FontWeight.bold,
                     )
-                  ),
-                  child: ActionButton(
-                    icon: Icons.arrow_back_rounded,
-                    onTap: () => controller.toMain(),
-                    color: Colors.deepPurpleAccent
-                  ),
+                  ],
                 ),
-                const DashboardText(
-                  text: "Informativo sobre venda",
-                  fontFamily: "Noto Sans",
-                  size: 30,
-                  color: Colors.deepPurpleAccent,
-                  fontWeight: FontWeight.bold,
-                )
-              ],
-            ),
+              ),
+              const Flexible(
+                flex: 4,
+                child: SalesForm()
+              )
+            ],
           ),
-          const Flexible(
-            flex: 4,
-            child: SalesForm()
-          )
-        ],
-      ),
+        );
+      }
     );
   }
 }
