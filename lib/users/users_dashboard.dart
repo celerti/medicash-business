@@ -23,7 +23,12 @@ class _UsersDashboardState extends State<UsersDashboard> {
           // TODO: add search filters
           Flexible(
             child: Padding(
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.only(
+                top: 40,
+                bottom: 20,
+                left: 20,
+                right: 20
+              ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
@@ -47,22 +52,13 @@ class _UsersDashboardState extends State<UsersDashboard> {
                 left: 20,
                 right: 20
               ),
-              child: Container(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.deepPurpleAccent,
-                    width: 3
-                  ),
-                  borderRadius: const BorderRadius.all(Radius.circular(10))
-                ),
-                child: ListView.builder(
-                  itemCount: 5,
-                  itemBuilder: (context, index) { 
-                    return UsersCard(
-                      onTap: () => controller.toUsersDetails(),
-                    );
-                  }
-                )
+              child: ListView.builder(
+                itemCount: 5,
+                itemBuilder: (context, index) { 
+                  return UsersCard(
+                    onTap: () => controller.toUsersDetails(),
+                  );
+                }
               ),
             )
           )

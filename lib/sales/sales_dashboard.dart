@@ -93,22 +93,13 @@ class _SalesDashboardState extends State<SalesDashboard> {
                       left: 20,
                       right: 20
                     ),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.deepPurpleAccent,
-                          width: 3
-                        ),
-                        borderRadius: const BorderRadius.all(Radius.circular(10))
-                      ),
-                      child: ListView.builder(
-                        itemCount: 5,
-                        itemBuilder: (context, index) { 
-                          return SalesCard(
-                            redirect: () => controller.toSalesDetails(),
-                          );
-                        }
-                      )
+                    child: ListView.builder(
+                      itemCount: 5,
+                      itemBuilder: (context, index) { 
+                        return SalesCard(
+                          redirect: () => controller.toSalesDetails(),
+                        );
+                      }
                     ),
                   ),
                 ),

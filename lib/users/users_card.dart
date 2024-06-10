@@ -15,7 +15,7 @@ class UsersCard extends StatelessWidget {
       Widget card = Padding(
         padding: const EdgeInsets.only(
           bottom: 10,
-          top: 10,
+          top: 20,
           left: 20,
           right: 20
         ),
@@ -31,9 +31,12 @@ class UsersCard extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              CardImage(size: isMobile ? 80 : 150),
+              CardImage(size: isMobile ? 60 : 150),
               Container(
-                margin: const EdgeInsets.only(left: 10, top: 10),
+                margin: const EdgeInsets.only(
+                  left: 10,
+                  top: 10,
+                  ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[

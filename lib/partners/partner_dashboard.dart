@@ -40,12 +40,7 @@ class PartnerDashboardState extends State<PartnerDashboard> {
           children: <Widget>[
             Flexible(
               child: Padding(
-                padding: const EdgeInsets.only(
-                  top: 10,
-                  bottom: 10,
-                  left: 20,
-                  right: 20
-                ),
+                padding: const EdgeInsets.all(20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
@@ -64,6 +59,7 @@ class PartnerDashboardState extends State<PartnerDashboard> {
                         SizedBox(width: isLarge ? 50 : 10)
                       ],
                     ),
+                    if (isMedium)
                     DashboardText(
                       text: _store!.isEmpty ? "Todas as lojas" : _store!,
                       color: Colors.deepPurpleAccent,
