@@ -11,24 +11,28 @@ class UsersController extends GetxController {
   late Rx<Widget> bodyContent = Rx<Widget>(_mainContent);
 
   final _onLoading = true.obs;
-  var users = <User>[];
+  RxList<User> users = <User>[].obs;
 
   Rx<bool> get onLoading => _onLoading;
 
-  // @override
-  // void onInit() {
-  //   super.onInit();
-  //   loadUsers();
-  // }
-
-  Future<List<User>> _findAll() async {
+  Future<RxList<User>> _findAll() async {
     var response = await http.get(Uri.http('localhost:8080', '/users'));
-    print(response.body);
     if (response.statusCode == 200) {
-      Iterable data = jsonDecode(response.body);
-      return List<User>.from(data.map((object) => User.fromJson(object)));
+      var data = (jsonDecode(response.body) as List).cast<Map<String, dynamic>>();
+      var users = data.map<User>((object) => User.fromJson(object)).toList().obs;
+      for (var user in users) {
+        print(user.id);
+      }
+      return users;
     }
-    return [];
+    return <User>[].obs;
+  }
+
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    super.onInit();
+    loadUsers();
   }
 
   void loadUsers() async {

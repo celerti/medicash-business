@@ -16,12 +16,6 @@ class _UsersDashboardState extends State<UsersDashboard> {
   final UsersController controller = Get.find();
 
   @override
-  void initState() {
-    super.initState();
-    controller.loadUsers();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
       bool isMobile = constraints.maxWidth < 1000;
@@ -40,7 +34,7 @@ class _UsersDashboardState extends State<UsersDashboard> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  DashboardText(text: "${controller.users.length} usuários cadastrados",
+                  DashboardText(text: controller.onLoading.value ? "Carregando..." : "${controller.users.value.length} usuários cadastrados",
                     fontFamily: "Noto Sans",
                     color: Colors.deepPurpleAccent,
                     fontWeight: FontWeight.bold,

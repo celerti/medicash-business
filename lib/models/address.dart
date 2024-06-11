@@ -19,7 +19,7 @@ class Address {
     return Address(
       city: json['city'] as String?,
       streetAddress: json['streetAddress'] as String?,
-      complement: json['complement'] as String?,
+      complement: json['complement'] ?? json['complement'] as String?,
       addressNumber: json['addressNumber'] as String?,
       state: json['state'] as String?,
       zipCode: json['zipCode'] as String?,

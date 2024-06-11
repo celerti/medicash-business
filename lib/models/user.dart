@@ -6,7 +6,7 @@ class User {
   String? fullName;
   String? email;
   String? userName;
-  String? password;
+  String? passWord;
   Address? address;
   Phone? phone;
   DateTime? createdAt;
@@ -15,7 +15,7 @@ class User {
   User({this.userName,
   this.fullName,
   this.email,
-  this.password,
+  this.passWord,
   this.id,
   this.address,
   this.phone,
@@ -25,14 +25,14 @@ class User {
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
       id: json['id'] as String?,
-      userName: json['username'] as String?,
-      fullName: json['fullname'] as String?,
+      userName: json['userName'] as String?,
+      fullName: json['fullName'] as String?,
       email: json['email'] as String?,
-      password: json['password'] as String?,
+      passWord: json['passWord'] as String?,
       address: Address.fromJson(json['address']),
       phone: Phone.fromJson(json['phone']),
-      createdAt: json['created_at'] as DateTime?,
-      updatedAt: json['updated_at'] as DateTime?
+      createdAt: DateTime.parse(json['createdAt']) as DateTime?,
+      // updatedAt: json['updatedAt'] ?? DateTime.parse(json['updatedAt']) as DateTime?
     );
   }
 
@@ -42,7 +42,7 @@ class User {
       'userName': userName,
       'fullName': fullName,
       'email': email,
-      'passWord': password,
+      'passWord': passWord,
       'address': address?.toJson(),
       'phone': phone?.toJson(),
     };
