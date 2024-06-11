@@ -40,7 +40,12 @@ class PartnerDashboardState extends State<PartnerDashboard> {
           children: <Widget>[
             Flexible(
               child: Padding(
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.only(
+                  top: 10,
+                  bottom: 10,
+                  left: 20,
+                  right: 20
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
@@ -80,22 +85,24 @@ class PartnerDashboardState extends State<PartnerDashboard> {
                           fontWeight: FontWeight.w600,
                           size: 16,
                         ),
-                        DropdownMenu<String>(
-                          dropdownMenuEntries: const [
-                            DropdownMenuEntry(value: "15", label: "Últimos 15 dias"),
-                            DropdownMenuEntry(value: "30", label: "Últimos 30 dias"),
-                            DropdownMenuEntry(value: "60", label: "Últimos 60 dias"),
-                            DropdownMenuEntry(value: "90", label: "Últimos 90 dias"),
-                          ],
-                          textStyle: GoogleFonts.getFont(
-                            "Noto Sans",
-                            color: Colors.black,
-                            fontSize: isLarge ? 16 : 12
+                        SizedBox(
+                          child: DropdownMenu<String>(
+                            dropdownMenuEntries: const [
+                              DropdownMenuEntry(value: "15", label: "Últimos 15 dias"),
+                              DropdownMenuEntry(value: "30", label: "Últimos 30 dias"),
+                              DropdownMenuEntry(value: "60", label: "Últimos 60 dias"),
+                              DropdownMenuEntry(value: "90", label: "Últimos 90 dias"),
+                            ],
+                            textStyle: GoogleFonts.getFont(
+                              "Noto Sans",
+                              color: Colors.black,
+                              fontSize: isLarge ? 16 : 12
+                            ),
+                            onSelected: (String? value) => setState(() {
+                              _dateFilter = value;
+                            }),
+                            initialSelection: "30",
                           ),
-                          onSelected: (String? value) => setState(() {
-                            _dateFilter = value;
-                          }),
-                          initialSelection: "30",
                         ),
                       ],
                     ),
