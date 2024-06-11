@@ -9,6 +9,7 @@ class FormWidget extends StatelessWidget {
   final String fieldValue;
   final bool viewAction;
   final double fontSize;
+  final ValueChanged<String?>? onChanged;
   const FormWidget({super.key,
   required this.width,
   required this.height,
@@ -16,7 +17,8 @@ class FormWidget extends StatelessWidget {
   required this.icon,
   this.fontSize = 16,
   required this.fieldName,
-  required this.fieldValue});
+  required this.fieldValue,
+  this.onChanged});
 
   @override
   Widget build(BuildContext context) {

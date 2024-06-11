@@ -13,14 +13,22 @@ class UsersDashboard extends StatefulWidget {
 
 class _UsersDashboardState extends State<UsersDashboard> {
 
+  final UsersController controller = Get.find();
+
+  @override
+  void initState() {
+    super.initState();
+    controller.loadUsers();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final UsersController controller = Get.find();
     return LayoutBuilder(builder: (context, constraints) {
       bool isMobile = constraints.maxWidth < 1000;
       return Column(
         children: <Widget>[
           // TODO: add search filters
+          if (controller.onLoading.value)
           Flexible(
             child: Padding(
               padding: const EdgeInsets.only(
@@ -32,7 +40,7 @@ class _UsersDashboardState extends State<UsersDashboard> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  DashboardText(text: "Usuários cadastrados",
+                  DashboardText(text: "${controller.users.length} usuários cadastrados",
                     fontFamily: "Noto Sans",
                     color: Colors.deepPurpleAccent,
                     fontWeight: FontWeight.bold,
@@ -53,10 +61,13 @@ class _UsersDashboardState extends State<UsersDashboard> {
                 right: 20
               ),
               child: ListView.builder(
-                itemCount: 5,
+                itemCount: controller.users.length,
                 itemBuilder: (context, index) { 
+                  var user = controller.users[index];
                   return UsersCard(
-                    onTap: () => controller.toUsersDetails(),
+                    name: user.fullName,
+                    createdAt: user.createdAt,
+                    onTap: () => controller.toUsersDetails(index),
                   );
                 }
               ),

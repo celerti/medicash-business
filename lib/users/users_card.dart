@@ -4,8 +4,12 @@ import 'package:dashboard/widgets/dashboard_text.dart';
 import 'package:flutter/material.dart';
 
 class UsersCard extends StatelessWidget {
+  final String? name;
+  final DateTime? createdAt;
   final VoidCallback? onTap;
   const UsersCard({super.key,
+  required this.name,
+  required this.createdAt,
   this.onTap});
 
   @override
@@ -41,39 +45,39 @@ class UsersCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     DashboardText(
-                      text: "Leader Manager",
+                      text: name!,
                       fontFamily: "Noto Sans",
                       size: isMobile ? 16 : 25,
                       fontWeight: FontWeight.bold
                     ),
-                    const Row(
-                      children: <Widget>[
-                        Icon(
-                          Icons.store,
-                          color: Colors.greenAccent,
-                        ),
-                        DashboardText(
-                          text: "1 gerência cadastrada", 
-                          fontFamily: "Noto Sans",
-                          size: 12,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ]
-                    ),
-                    const Row(
-                      children: <Widget>[
-                        Icon(
-                          Icons.shopping_cart,
-                          color: Colors.amberAccent,
-                        ),
-                        DashboardText(
-                          text: "15 vendas realizadas", 
-                          fontFamily: "Noto Sans",
-                          size: 12,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ]
-                    ),
+                    // const Row(
+                    //   children: <Widget>[
+                    //     Icon(
+                    //       Icons.store,
+                    //       color: Colors.greenAccent,
+                    //     ),
+                    //     DashboardText(
+                    //       text: "1 gerência cadastrada", 
+                    //       fontFamily: "Noto Sans",
+                    //       size: 12,
+                    //       fontWeight: FontWeight.w500,
+                    //     ),
+                    //   ]
+                    // ),
+                    // const Row(
+                    //   children: <Widget>[
+                    //     Icon(
+                    //       Icons.shopping_cart,
+                    //       color: Colors.amberAccent,
+                    //     ),
+                    //     DashboardText(
+                    //       text: "15 vendas realizadas", 
+                    //       fontFamily: "Noto Sans",
+                    //       size: 12,
+                    //       fontWeight: FontWeight.w500,
+                    //     ),
+                    //   ]
+                    // ),
                     const Row(
                       children: <Widget>[
                         Icon(

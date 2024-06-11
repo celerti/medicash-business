@@ -1,3 +1,4 @@
+import 'package:dashboard/models/user.dart';
 import 'package:dashboard/widgets/form_params.dart';
 import 'package:dashboard/widgets/form_widget.dart';
 import 'package:flutter/material.dart';
@@ -8,70 +9,141 @@ class UsersForm extends StatelessWidget {
     for both view and create actions
   */
   final bool viewAction;
+  final User user;
+  final Function(User)? onChangedUser;
+
   const UsersForm({
     super.key,
-  this.viewAction=true});
+    this.viewAction=true,
+    required this.user,
+    required this.onChangedUser
+  });
 
   @override
   Widget build(BuildContext context) {
     // final screenWidth = Get.context!.size?.width;
-    List<FormParams> formParamsList = const [
-      FormParams(
-        fieldName: "Produto",
-        fieldValue: "Leader Laboratory",
+    List<FormParams> formParamsList = [
+    FormParams(
+        fieldName: "Nome",
+        fieldValue: user.fullName!, // TODO
         fieldHeight: 100,
         fieldWidth: 100,
-        icon: Icons.shopping_cart
+        icon: Icons.person,
+        onChanged: (value) {
+          user.fullName = value;
+          if (onChangedUser != null) onChangedUser!(user);
+        }
       ),
       FormParams(
-        fieldName: "Data",
-        fieldValue: "31/05/2024",
+        fieldName: "Nome de usuário",
+        fieldValue: user.userName!= null ? user.userName! : '',
         fieldHeight: 100,
         fieldWidth: 100,
-        icon: Icons.calendar_month
+        icon: Icons.badge_outlined,
+        onChanged: (value) {
+          user.userName = value;
+          if (onChangedUser != null) onChangedUser!(user);
+        }
       ),
       FormParams(
-        fieldName: "Loja",
-        fieldValue: "MedicashApp Store",
+        fieldName: "E-mail",
+        fieldValue: "medicashappuser@gmail.com", // TODO
         fieldHeight: 100,
         fieldWidth: 100,
-        icon: Icons.location_on
+        icon: Icons.email_outlined,
+        onChanged: (value) {
+          user.email = value;
+          if (onChangedUser != null) onChangedUser!(user);
+        }
       ),
       FormParams(
-        fieldName: "Nome do cliente",
-        fieldValue: "MedicashApp Client",
+        fieldName: "Telefone",
+        fieldValue: user.phone?.phoneNumber != null ? user.phone!.phoneNumber! : "",
         fieldHeight: 100,
         fieldWidth: 100,
-        icon: Icons.person
+        icon: Icons.phone_rounded,
+        onChanged: (value) {
+          user.phone?.phoneNumber = value;
+          if (onChangedUser != null) onChangedUser!(user);
+        }
       ),
       FormParams(
-        fieldName: "Forma de pagamento",
-        fieldValue: "Leader Laboratory",
+        fieldName: "Endereço",
+        fieldValue: user.address?.streetAddress != null ? user.address!.streetAddress! : "",
         fieldHeight: 100,
         fieldWidth: 100,
-        icon: Icons.payment
+        icon: Icons.location_on_outlined,
+        onChanged: (value) {
+          user.address?.streetAddress = value;
+          if (onChangedUser != null) onChangedUser!(user);
+        }
       ),
       FormParams(
-        fieldName: "Valor",
-        fieldValue: "R\$ 100,00",
+        fieldName: "Número",
+        fieldValue: user.address?.addressNumber != null ? user.address!.addressNumber! : "",
         fieldHeight: 100,
         fieldWidth: 100,
-        icon: Icons.paid
+        icon: Icons.house_rounded,
+        onChanged: (value) {
+          user.address?.addressNumber = value;
+          if (onChangedUser != null) onChangedUser!(user);
+        }
       ),
       FormParams(
-        fieldName: "Produto",
-        fieldValue: "Leader Laboratory",
+        fieldName: "Complemento",
+        fieldValue: user.address?.complement != null ? user.address!.complement! : "",
         fieldHeight: 100,
         fieldWidth: 100,
-        icon: Icons.badge
+        icon: Icons.label_outline_rounded,
+        onChanged: (value) {
+          user.address?.complement = value;
+          if (onChangedUser != null) onChangedUser!(user);
+        }
       ),
       FormParams(
-        fieldName: "Produto",
-        fieldValue: "Leader Laboratory",
+        fieldName: "Cidade",
+        fieldValue: user.address?.city != null ? user.address!.city! : "",
         fieldHeight: 100,
         fieldWidth: 100,
-        icon: Icons.currency_exchange
-      )
+        icon: Icons.location_city,
+        onChanged: (value) {
+          user.address?.city = value;
+          if (onChangedUser != null) onChangedUser!(user);
+        }
+      ),
+      FormParams(
+        fieldName: "Estado (UF)",
+        fieldValue: user.address?.state != null ? user.address!.state! : "",
+        fieldHeight: 100,
+        fieldWidth: 100,
+        icon: Icons.flag_outlined,
+        onChanged: (value) {
+          user.address?.state = value;
+          if (onChangedUser != null) onChangedUser!(user);
+        }
+      ),
+      FormParams(
+        fieldName: "País",
+        fieldValue: user.address?.country != null ? user.address!.country! : "",
+        fieldHeight: 100,
+        fieldWidth: 100,
+        icon: Icons.flag_rounded,
+        onChanged: (value) {
+          user.address?.country = value;
+          if (onChangedUser != null) onChangedUser!(user);
+        }
+      ),
+      FormParams(
+        fieldName: "CEP",
+        fieldValue: user.address?.country != null ? user.address!.country! : "",
+        fieldHeight: 100,
+        fieldWidth: 100,
+        icon: Icons.location_pin,
+        onChanged: (value) {
+          user.address?.country = value;
+          if (onChangedUser != null) onChangedUser!(user);
+        }
+      ),
     ];
     return Padding(
       padding: const EdgeInsets.all(20),
@@ -93,6 +165,7 @@ class UsersForm extends StatelessWidget {
             fieldName: formParams.fieldName,
             fieldValue: formParams.fieldValue,
             viewAction: viewAction,
+            onChanged: formParams.onChanged,
           );
         }
       )

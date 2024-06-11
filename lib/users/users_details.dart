@@ -1,4 +1,5 @@
 import 'package:dashboard/controllers/users_controller.dart';
+import 'package:dashboard/models/user.dart';
 import 'package:dashboard/users/users_form.dart';
 import 'package:dashboard/widgets/action_button.dart';
 import 'package:dashboard/widgets/dashboard_text.dart';
@@ -6,7 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class UsersDetails extends StatefulWidget {
-  const UsersDetails({super.key});
+  final User user;
+  const UsersDetails({super.key, required this.user});
 
   @override
   State<UsersDetails> createState() => _UsersDetailsState();
@@ -15,11 +17,13 @@ class UsersDetails extends StatefulWidget {
 class _UsersDetailsState extends State<UsersDetails> {
 
   late bool _isEditAction;
+  late User _editableUser;
 
   @override
   void initState() {
     super.initState();
     _isEditAction = false;
+    _editableUser = widget.user;
   }
 
   @override
@@ -63,6 +67,7 @@ class _UsersDetailsState extends State<UsersDetails> {
                     ActionButton(
                       icon: _isEditAction ? Icons.save : Icons.edit,
                       onTap: () {
+                        // if (_isEditAction) PATCH
                         setState(() {
                           _isEditAction = !_isEditAction;
                         });
@@ -77,7 +82,13 @@ class _UsersDetailsState extends State<UsersDetails> {
               Flexible(
                 flex: 4,
                 child: UsersForm(
+                  user: _editableUser,
                   viewAction: !_isEditAction,
+                  onChangedUser: (updatedUser) {
+                    setState(() {
+                      _editableUser = updatedUser;
+                    });
+                  },
                 ),
               )
             ],

@@ -7,11 +7,13 @@ class FormParams {
   final double fieldWidth;
   final double fieldHeight;
   final double textSize;
+  final ValueChanged<String?>? onChanged;
 
   const FormParams({required this.fieldName,
   required this.fieldValue,
   required this.icon,
   required this.fieldWidth,
   required this.fieldHeight,
-  this.textSize = 16});
+  this.textSize = 16,
+  this.onChanged});
 }
