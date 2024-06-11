@@ -22,7 +22,6 @@ class _UsersDashboardState extends State<UsersDashboard> {
       return Column(
         children: <Widget>[
           // TODO: add search filters
-          if (controller.onLoading.value)
           Flexible(
             child: Padding(
               padding: const EdgeInsets.only(
@@ -45,6 +44,7 @@ class _UsersDashboardState extends State<UsersDashboard> {
             ),
           ),
 
+          if (!controller.onLoading.value)
           Flexible(
             flex: 4,
             child: Padding(
