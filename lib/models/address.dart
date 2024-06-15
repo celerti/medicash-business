@@ -7,13 +7,14 @@ class Address {
   String? zipCode;
   String? country;
 
-  Address({this.city,
-  this.streetAddress,
-  this.complement,
-  this.addressNumber,
-  this.state,
-  this.zipCode,
-  this.country});
+  Address(
+      {this.city,
+      this.streetAddress,
+      this.complement,
+      this.addressNumber,
+      this.state,
+      this.zipCode,
+      this.country});
 
   factory Address.fromJson(Map<String, dynamic> json) {
     return Address(
@@ -29,13 +30,13 @@ class Address {
 
   Map<String, dynamic> toJson() {
     return {
-      'city': city,
-      'streetAddress': streetAddress,
-      'complement': complement,
-      'addressNumber': addressNumber,
-      'state': state,
-      'zipCode': zipCode,
-      'country': country
+      if (city != null) 'city': city,
+      if (streetAddress != null) 'streetAddress': streetAddress,
+      if (complement != null) 'complement': complement,
+      if (addressNumber != null) 'addressNumber': addressNumber,
+      if (state != null) 'state': state,
+      if (zipCode != null) 'zipCode': zipCode,
+      if (country != null) 'country': country
     };
   }
 }

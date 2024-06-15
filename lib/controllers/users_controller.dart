@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'package:dashboard/models/address.dart';
+import 'package:dashboard/models/phone.dart';
 import 'package:dashboard/models/user.dart';
 import 'package:dashboard/users/users_dashboard.dart';
 import 'package:dashboard/users/users_details.dart';
@@ -15,14 +17,15 @@ class UsersController extends GetxController {
 
   Rx<bool> get onLoading => _onLoading;
 
+  late Rx<User> patchRequest;
+
   Future<RxList<User>> _findAll() async {
     var response = await http.get(Uri.http('localhost:8080', '/users'));
     if (response.statusCode == 200) {
-      var data = (jsonDecode(response.body) as List).cast<Map<String, dynamic>>();
-      var users = data.map<User>((object) => User.fromJson(object)).toList().obs;
-      for (var user in users) {
-        print(user.id);
-      }
+      var data =
+          (jsonDecode(response.body) as List).cast<Map<String, dynamic>>();
+      var users =
+          data.map<User>((object) => User.fromJson(object)).toList().obs;
       return users;
     }
     return <User>[].obs;
@@ -41,7 +44,22 @@ class UsersController extends GetxController {
     _onLoading(false);
   }
 
-  void toUsersDetails(int index) => bodyContent.value = UsersDetails(user: users[index]);
+  void patchUser(User user) async {
+    var body = jsonEncode(patchRequest.value.toJson());
+    print(body);
+    await http.patch(
+      Uri.http('localhost:8080', '/users/${user.id}'),
+      body: body,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    );
+  }
+
+  void toUsersDetails(int index) {
+    patchRequest = User().obs;
+    bodyContent.value = UsersDetails(user: users[index]);
+  }
 
   void toMain() => bodyContent.value = _mainContent;
 }

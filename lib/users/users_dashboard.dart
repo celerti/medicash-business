@@ -12,7 +12,6 @@ class UsersDashboard extends StatefulWidget {
 }
 
 class _UsersDashboardState extends State<UsersDashboard> {
-
   final UsersController controller = Get.find();
 
   @override
@@ -25,15 +24,14 @@ class _UsersDashboardState extends State<UsersDashboard> {
           Flexible(
             child: Padding(
               padding: const EdgeInsets.only(
-                top: 40,
-                bottom: 20,
-                left: 20,
-                right: 20
-              ),
+                  top: 40, bottom: 20, left: 20, right: 20),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  DashboardText(text: controller.onLoading.value ? "Carregando..." : "${controller.users.value.length} usuários cadastrados",
+                  DashboardText(
+                    text: controller.onLoading.value
+                        ? "Carregando..."
+                        : "${controller.users.value.length} usuários cadastrados",
                     fontFamily: "Noto Sans",
                     color: Colors.deepPurpleAccent,
                     fontWeight: FontWeight.bold,
@@ -45,30 +43,24 @@ class _UsersDashboardState extends State<UsersDashboard> {
           ),
 
           if (!controller.onLoading.value)
-          Flexible(
-            flex: 4,
-            child: Padding(
-              padding: const EdgeInsets.only(
-                bottom: 10,
-                top: 10,
-                left: 20,
-                right: 20
-              ),
-              child: ListView.builder(
-                itemCount: controller.users.length,
-                itemBuilder: (context, index) { 
-                  var user = controller.users[index];
-                  return UsersCard(
-                    name: user.fullName,
-                    createdAt: user.createdAt,
-                    onTap: () => controller.toUsersDetails(index),
-                  );
-                }
-              ),
-            )
-          )
+            Flexible(
+                flex: 4,
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                      bottom: 10, top: 10, left: 20, right: 20),
+                  child: ListView.builder(
+                      itemCount: controller.users.length,
+                      itemBuilder: (context, index) {
+                        var user = controller.users[index];
+                        return UsersCard(
+                          name: user.fullName,
+                          createdAt: user.createdAt,
+                          onTap: () => controller.toUsersDetails(index),
+                        );
+                      }),
+                ))
         ],
       );
-    });  
+    });
   }
 }

@@ -12,15 +12,16 @@ class User {
   DateTime? createdAt;
   DateTime? updatedAt;
 
-  User({this.userName,
-  this.fullName,
-  this.email,
-  this.passWord,
-  this.id,
-  this.address,
-  this.phone,
-  this.createdAt,
-  this.updatedAt});
+  User(
+      {this.userName,
+      this.fullName,
+      this.email,
+      this.passWord,
+      this.id,
+      this.address,
+      this.phone,
+      this.createdAt,
+      this.updatedAt});
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
@@ -39,12 +40,12 @@ class User {
   Map<String, dynamic> toJson() {
     // only fields required to DTO
     return {
-      'userName': userName,
-      'fullName': fullName,
-      'email': email,
-      'passWord': passWord,
-      'address': address?.toJson(),
-      'phone': phone?.toJson(),
+      if (userName != null) 'userName': userName,
+      if (fullName != null) 'fullName': fullName,
+      if (email != null) 'email': email,
+      if (passWord != null) 'passWord': passWord,
+      if (address != null) 'address': address?.toJson(),
+      if (phone != null) 'phone': phone?.toJson(),
     };
   }
 }

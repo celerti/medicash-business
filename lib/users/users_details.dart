@@ -15,7 +15,6 @@ class UsersDetails extends StatefulWidget {
 }
 
 class _UsersDetailsState extends State<UsersDetails> {
-
   late bool _isEditAction;
   late User _editableUser;
 
@@ -43,18 +42,14 @@ class _UsersDetailsState extends State<UsersDetails> {
                     Container(
                       margin: const EdgeInsets.only(right: 10),
                       decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.white,
-                        border: Border.all(
-                          color: Colors.deepPurpleAccent,
-                          width: 2
-                        )
-                      ),
+                          shape: BoxShape.circle,
+                          color: Colors.white,
+                          border: Border.all(
+                              color: Colors.deepPurpleAccent, width: 2)),
                       child: ActionButton(
-                        icon: Icons.arrow_back_rounded,
-                        onTap: () => controller.toMain(),
-                        color: Colors.deepPurpleAccent
-                      ),
+                          icon: Icons.arrow_back_rounded,
+                          onTap: () => controller.toMain(),
+                          color: Colors.deepPurpleAccent),
                     ),
                     DashboardText(
                       text: "Cadastro de usuário",
@@ -65,17 +60,18 @@ class _UsersDetailsState extends State<UsersDetails> {
                     ),
                     Expanded(child: Container()),
                     ActionButton(
-                      icon: _isEditAction ? Icons.save : Icons.edit,
-                      onTap: () {
-                        // if (_isEditAction) PATCH
-                        setState(() {
-                          _isEditAction = !_isEditAction;
-                        });
-                      },
-                      color: Colors.deepPurple[300],
-                      onHoverColor: Colors.deepPurpleAccent,
-                      onTriggerColor: Colors.deepPurpleAccent
-                    )
+                        icon: _isEditAction ? Icons.save : Icons.edit,
+                        onTap: () {
+                          if (_isEditAction) {
+                            controller.patchUser(_editableUser);
+                          }
+                          setState(() {
+                            _isEditAction = !_isEditAction;
+                          });
+                        },
+                        color: Colors.deepPurple[300],
+                        onHoverColor: Colors.deepPurpleAccent,
+                        onTriggerColor: Colors.deepPurpleAccent)
                   ],
                 ),
               ),
@@ -84,11 +80,6 @@ class _UsersDetailsState extends State<UsersDetails> {
                 child: UsersForm(
                   user: _editableUser,
                   viewAction: !_isEditAction,
-                  onChangedUser: (updatedUser) {
-                    setState(() {
-                      _editableUser = updatedUser;
-                    });
-                  },
                 ),
               )
             ],
