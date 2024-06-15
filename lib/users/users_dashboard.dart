@@ -31,7 +31,7 @@ class _UsersDashboardState extends State<UsersDashboard> {
                   DashboardText(
                     text: controller.onLoading.value
                         ? "Carregando..."
-                        : "${controller.users.value.length} usuários cadastrados",
+                        : "${controller.users.length} usuários cadastrados",
                     fontFamily: "Noto Sans",
                     color: Colors.deepPurpleAccent,
                     fontWeight: FontWeight.bold,

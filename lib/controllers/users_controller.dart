@@ -1,6 +1,4 @@
 import 'dart:convert';
-import 'package:dashboard/models/address.dart';
-import 'package:dashboard/models/phone.dart';
 import 'package:dashboard/models/user.dart';
 import 'package:dashboard/users/users_dashboard.dart';
 import 'package:dashboard/users/users_details.dart';
@@ -46,7 +44,6 @@ class UsersController extends GetxController {
 
   void patchUser(User user) async {
     var body = jsonEncode(patchRequest.value.toJson());
-    print(body);
     await http.patch(
       Uri.http('localhost:8080', '/users/${user.id}'),
       body: body,

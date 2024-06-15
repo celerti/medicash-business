@@ -66,7 +66,6 @@ class _UsersFormState extends State<UsersForm> {
           fieldWidth: 100,
           icon: Icons.phone_rounded,
           onChanged: (value) {
-            print(value);
             widget.user.phone?.phoneNumber = value;
             controller.patchRequest.value.phone ??= Phone();
             controller.patchRequest.value.phone?.phoneNumber = value;
